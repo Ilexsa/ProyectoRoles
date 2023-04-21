@@ -59,5 +59,15 @@ namespace ProyectoRoles.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Untitled_1_min_2 {
+            get {
+                object obj = ResourceManager.GetObject("Untitled-1-min-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

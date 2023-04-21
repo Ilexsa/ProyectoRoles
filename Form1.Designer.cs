@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblRuta = new Label();
-            txtRuta = new TextBox();
-            btnBuscarArchvo = new Button();
             menuStrip1 = new MenuStrip();
             procesosToolStripMenuItem = new ToolStripMenuItem();
             correosMasivosToolStripMenuItem = new ToolStripMenuItem();
@@ -42,40 +39,15 @@
             toolStripSeparator3 = new ToolStripSeparator();
             consultarBaseToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator4 = new ToolStripSeparator();
+            subirIndividualToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator5 = new ToolStripSeparator();
             salirToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // lblRuta
-            // 
-            lblRuta.AutoSize = true;
-            lblRuta.Location = new Point(53, 66);
-            lblRuta.Name = "lblRuta";
-            lblRuta.Size = new Size(97, 15);
-            lblRuta.TabIndex = 0;
-            lblRuta.Text = "Ruta de Archivo :";
-            lblRuta.Click += label1_Click;
-            // 
-            // txtRuta
-            // 
-            txtRuta.Location = new Point(156, 63);
-            txtRuta.Name = "txtRuta";
-            txtRuta.Size = new Size(315, 23);
-            txtRuta.TabIndex = 1;
-            txtRuta.TextChanged += textBox1_TextChanged;
-            // 
-            // btnBuscarArchvo
-            // 
-            btnBuscarArchvo.Location = new Point(477, 63);
-            btnBuscarArchvo.Name = "btnBuscarArchvo";
-            btnBuscarArchvo.Size = new Size(75, 23);
-            btnBuscarArchvo.TabIndex = 2;
-            btnBuscarArchvo.Text = "Buscar";
-            btnBuscarArchvo.UseVisualStyleBackColor = true;
-            btnBuscarArchvo.Click += btnBuscarArchvo_Click;
-            // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = Color.FromArgb(192, 255, 255);
             menuStrip1.Items.AddRange(new ToolStripItem[] { procesosToolStripMenuItem, basesToolStripMenuItem, salirToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
@@ -85,6 +57,7 @@
             // 
             // procesosToolStripMenuItem
             // 
+            procesosToolStripMenuItem.CheckOnClick = true;
             procesosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { correosMasivosToolStripMenuItem, toolStripSeparator1, correoIndividualToolStripMenuItem, toolStripSeparator2 });
             procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
             procesosToolStripMenuItem.Size = new Size(66, 20);
@@ -94,29 +67,30 @@
             // correosMasivosToolStripMenuItem
             // 
             correosMasivosToolStripMenuItem.Name = "correosMasivosToolStripMenuItem";
-            correosMasivosToolStripMenuItem.Size = new Size(180, 22);
+            correosMasivosToolStripMenuItem.Size = new Size(165, 22);
             correosMasivosToolStripMenuItem.Text = "Correos Masivos";
             correosMasivosToolStripMenuItem.Click += correosMasivosToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
+            toolStripSeparator1.Size = new Size(162, 6);
             // 
             // correoIndividualToolStripMenuItem
             // 
             correoIndividualToolStripMenuItem.Name = "correoIndividualToolStripMenuItem";
-            correoIndividualToolStripMenuItem.Size = new Size(180, 22);
+            correoIndividualToolStripMenuItem.Size = new Size(165, 22);
             correoIndividualToolStripMenuItem.Text = "Correo Individual";
+            correoIndividualToolStripMenuItem.Click += correoIndividualToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(177, 6);
+            toolStripSeparator2.Size = new Size(162, 6);
             // 
             // basesToolStripMenuItem
             // 
-            basesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { subirRolesToolStripMenuItem, toolStripSeparator3, consultarBaseToolStripMenuItem, toolStripSeparator4 });
+            basesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { subirRolesToolStripMenuItem, toolStripSeparator3, consultarBaseToolStripMenuItem, toolStripSeparator4, subirIndividualToolStripMenuItem, toolStripSeparator5 });
             basesToolStripMenuItem.Name = "basesToolStripMenuItem";
             basesToolStripMenuItem.Size = new Size(43, 20);
             basesToolStripMenuItem.Text = "Base";
@@ -124,24 +98,38 @@
             // subirRolesToolStripMenuItem
             // 
             subirRolesToolStripMenuItem.Name = "subirRolesToolStripMenuItem";
-            subirRolesToolStripMenuItem.Size = new Size(152, 22);
+            subirRolesToolStripMenuItem.Size = new Size(156, 22);
             subirRolesToolStripMenuItem.Text = "Subir roles";
+            subirRolesToolStripMenuItem.Click += subirRolesToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(149, 6);
+            toolStripSeparator3.Size = new Size(153, 6);
             // 
             // consultarBaseToolStripMenuItem
             // 
             consultarBaseToolStripMenuItem.Name = "consultarBaseToolStripMenuItem";
-            consultarBaseToolStripMenuItem.Size = new Size(152, 22);
+            consultarBaseToolStripMenuItem.Size = new Size(156, 22);
             consultarBaseToolStripMenuItem.Text = "Consultar Base";
+            consultarBaseToolStripMenuItem.Click += consultarBaseToolStripMenuItem_Click;
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(149, 6);
+            toolStripSeparator4.Size = new Size(153, 6);
+            // 
+            // subirIndividualToolStripMenuItem
+            // 
+            subirIndividualToolStripMenuItem.Name = "subirIndividualToolStripMenuItem";
+            subirIndividualToolStripMenuItem.Size = new Size(156, 22);
+            subirIndividualToolStripMenuItem.Text = "Subir Individual";
+            subirIndividualToolStripMenuItem.Click += subirIndividualToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator5
+            // 
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new Size(153, 6);
             // 
             // salirToolStripMenuItem
             // 
@@ -154,14 +142,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.Untitled_1_min_2;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnBuscarArchvo);
-            Controls.Add(txtRuta);
-            Controls.Add(lblRuta);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MainMenuStrip = menuStrip1;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Sistema Roles";
+            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -169,10 +157,6 @@
         }
 
         #endregion
-
-        private Label lblRuta;
-        private TextBox txtRuta;
-        private Button btnBuscarArchvo;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem procesosToolStripMenuItem;
         private ToolStripMenuItem correosMasivosToolStripMenuItem;
@@ -185,5 +169,7 @@
         private ToolStripMenuItem consultarBaseToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem salirToolStripMenuItem;
+        private ToolStripMenuItem subirIndividualToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator5;
     }
 }

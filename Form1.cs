@@ -6,31 +6,11 @@ namespace ProyectoRoles
         {
             InitializeComponent();
         }
-        string rutaArchivoSeleccionado;
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBuscarArchvo_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Archivos de Excel (*.xls;*.xlsx)|*.xls;*.xlsx";
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                rutaArchivoSeleccionado = openFileDialog1.FileName;
-            }
-
-        }
 
         private void correosMasivosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormCmasivos formCmasivos = new FormCmasivos();
+            formCmasivos.ShowDialog();
         }
 
         private void procesosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -40,7 +20,39 @@ namespace ProyectoRoles
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            if (MessageBox.Show("¿Está seguro que desea cerrar el sistema?", "Advertencia",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                this.Close();
+        }
+
+        private void correoIndividualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCIndividual formCIndividual = new FormCIndividual();
+            formCIndividual.ShowDialog();
+        }
+
+        private void consultarBaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormConsultarBases formConsultarBases = new FormConsultarBases();
+            formConsultarBases.ShowDialog();
+        }
+
+        private void subirRolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSubirRol formSubirRoles = new FormSubirRol();
+            formSubirRoles.ShowDialog();
+        }
+
+        private void subirIndividualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSubirIndividdual formSubirIndividdual = new FormSubirIndividdual();
+            formSubirIndividdual.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //ConexionBase conexion = new ConexionBase();
+            //conexion.abrir();
         }
     }
 }
