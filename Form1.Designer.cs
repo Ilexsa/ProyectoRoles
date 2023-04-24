@@ -42,6 +42,8 @@
             subirIndividualToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
             salirToolStripMenuItem = new ToolStripMenuItem();
+            subirTrabajadoresToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator6 = new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -90,7 +92,7 @@
             // 
             // basesToolStripMenuItem
             // 
-            basesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { subirRolesToolStripMenuItem, toolStripSeparator3, consultarBaseToolStripMenuItem, toolStripSeparator4, subirIndividualToolStripMenuItem, toolStripSeparator5 });
+            basesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { subirRolesToolStripMenuItem, toolStripSeparator3, consultarBaseToolStripMenuItem, toolStripSeparator4, subirIndividualToolStripMenuItem, toolStripSeparator5, toolStripSeparator6, subirTrabajadoresToolStripMenuItem });
             basesToolStripMenuItem.Name = "basesToolStripMenuItem";
             basesToolStripMenuItem.Size = new Size(43, 20);
             basesToolStripMenuItem.Text = "Base";
@@ -98,38 +100,38 @@
             // subirRolesToolStripMenuItem
             // 
             subirRolesToolStripMenuItem.Name = "subirRolesToolStripMenuItem";
-            subirRolesToolStripMenuItem.Size = new Size(156, 22);
+            subirRolesToolStripMenuItem.Size = new Size(180, 22);
             subirRolesToolStripMenuItem.Text = "Subir roles";
             subirRolesToolStripMenuItem.Click += subirRolesToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(153, 6);
+            toolStripSeparator3.Size = new Size(177, 6);
             // 
             // consultarBaseToolStripMenuItem
             // 
             consultarBaseToolStripMenuItem.Name = "consultarBaseToolStripMenuItem";
-            consultarBaseToolStripMenuItem.Size = new Size(156, 22);
+            consultarBaseToolStripMenuItem.Size = new Size(180, 22);
             consultarBaseToolStripMenuItem.Text = "Consultar Base";
             consultarBaseToolStripMenuItem.Click += consultarBaseToolStripMenuItem_Click;
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(153, 6);
+            toolStripSeparator4.Size = new Size(177, 6);
             // 
             // subirIndividualToolStripMenuItem
             // 
             subirIndividualToolStripMenuItem.Name = "subirIndividualToolStripMenuItem";
-            subirIndividualToolStripMenuItem.Size = new Size(156, 22);
+            subirIndividualToolStripMenuItem.Size = new Size(180, 22);
             subirIndividualToolStripMenuItem.Text = "Subir Individual";
             subirIndividualToolStripMenuItem.Click += subirIndividualToolStripMenuItem_Click;
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(153, 6);
+            toolStripSeparator5.Size = new Size(177, 6);
             // 
             // salirToolStripMenuItem
             // 
@@ -137,6 +139,17 @@
             salirToolStripMenuItem.Size = new Size(41, 20);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
+            // 
+            // subirTrabajadoresToolStripMenuItem
+            // 
+            subirTrabajadoresToolStripMenuItem.Name = "subirTrabajadoresToolStripMenuItem";
+            subirTrabajadoresToolStripMenuItem.Size = new Size(180, 22);
+            subirTrabajadoresToolStripMenuItem.Text = "Subir Trabajadores";
+            // 
+            // toolStripSeparator6
+            // 
+            toolStripSeparator6.Name = "toolStripSeparator6";
+            toolStripSeparator6.Size = new Size(177, 6);
             // 
             // Form1
             // 
@@ -171,5 +184,7 @@
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem subirIndividualToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator5;
+        private ToolStripSeparator toolStripSeparator6;
+        private ToolStripMenuItem subirTrabajadoresToolStripMenuItem;
     }
 }

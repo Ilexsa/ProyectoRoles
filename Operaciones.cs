@@ -10,7 +10,7 @@ namespace ProyectoRoles
 {
     public class Operaciones
     {
-        public bool SubirDatos(DataTable tbData)
+        public bool SubirDatosTrabajadores(DataTable tbData)
         {
             bool resultado = true;
             using (SqlConnection conexion = new SqlConnection(ConexionBase.cadenaConexion))
@@ -19,11 +19,16 @@ namespace ProyectoRoles
                 using (SqlBulkCopy subir = new SqlBulkCopy(conexion))
                 {
                                            //columExcel   columTable
-                    subir.ColumnMappings.Add("cedula", "cedula");
-                    subir.ColumnMappings.Add("nombre", "nombre");
-                    subir.ColumnMappings.Add("cargo", "cargo");
+                    subir.ColumnMappings.Add("cedula", "CEDULA");
+                    subir.ColumnMappings.Add("localidad", "IdLocalidad");
+                    subir.ColumnMappings.Add("departamento", "IdDepartamento");
+                    subir.ColumnMappings.Add("nombres", "NOMBRES");
+                    subir.ColumnMappings.Add("fecha de ingreso", "FECHA_INGRESO");
+                    subir.ColumnMappings.Add("cargo", "CARGO");
+                    subir.ColumnMappings.Add("sueldo base", "SUELDO_BASE");
+                    subir.ColumnMappings.Add("personal con discapacidad","PER_DISCAPACIDAD");
                     //tabla a la que vamos a apuntar
-                    subir.DestinationTableName = "Nomina";
+                    subir.DestinationTableName = "TRABAJADORES";
 
                     subir.BulkCopyTimeout = 1500;
                     try
