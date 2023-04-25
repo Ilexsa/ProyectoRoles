@@ -28,44 +28,56 @@ namespace ProyectoRoles
         private void recargarTabla()
         {
             // generamos un string que tiene los valores del select par la base 
-            string consultaBase = "select * from Nomina";
+            string consultaBase = "select * from TRABAJADORES";
             // vamos a generar un adaptador para que adapte la tablas y columnas de la base,usa como parametros la consulta
             //y la conexion para ver en que base se tiene que conectar
             SqlDataAdapter adptador = new SqlDataAdapter(consultaBase, conexion);
             // se debe guardar todo en una tabla virtual, todos los datos que el select ha traido de la tabla 
-            DataTable dtNomina = new DataTable();
+            DataTable dtTRABAJADORES = new DataTable();
             //Utilizando el adaptador antes declarado, lo vamos a llenar con los datos de la tabla virtual llamada tbNomina
-            adptador.Fill(dtNomina);
+            adptador.Fill(dtTRABAJADORES);
             //y ahora le vamos a dar el origen de los datos a dgv.
-            dgvConsultaTabla.DataSource = dtNomina;
+            dgvConsultaTabla.DataSource = dtTRABAJADORES;
         }
         private void FormConsultarBases_Load(object sender, EventArgs e)
         {
             // generamos un string que tiene los valores del select par la base 
-            string consultaBase = "select * from Nomina";
+            string consultaBase = "select * from TRABAJADORES";
             // vamos a generar un adaptador para que adapte la tablas y columnas de la base,usa como parametros la consulta
             //y la conexion para ver en que base se tiene que conectar
             SqlDataAdapter adptador = new SqlDataAdapter(consultaBase, conexion);
             // se debe guardar todo en una tabla virtual, todos los datos que el select ha traido de la tabla 
-            DataTable dtNomina = new DataTable();
+            DataTable dtTRABAJADORES = new DataTable();
             //Utilizando el adaptador antes declarado, lo vamos a llenar con los datos de la tabla virtual llamada tbNomina
-            adptador.Fill(dtNomina);
+            adptador.Fill(dtTRABAJADORES);
             //y ahora le vamos a dar el origen de los datos a dgv.
-            dgvConsultaTabla.DataSource = dtNomina;
+            dgvConsultaTabla.DataSource = dtTRABAJADORES;
         }
 
         private void btnAgg_Click(object sender, EventArgs e)
         {
             conexion.Open();
             //Inserta los datos a la base dejando en claro el query a traves del string
-            string add = "insert into Nomina values('"+txtCedula.Text+"','"+txtNombre.Text+"','"+txtCargo.Text+"')";
-            SqlCommand comando = new SqlCommand(add,conexion);
+            string add = "insert into Nomina values('" + txtCedula.Text + "','" + txtNombre.Text + "','" + txtCargo.Text + "')";
+            SqlCommand comando = new SqlCommand(add, conexion);
             // ahora declarado el objet comando que obtiene comoparametros el string add que tiene el query, y el string conexion   
             //que tiene las llaves de conexion
             comando.ExecuteNonQuery();
             MessageBox.Show("Registro Exitoso", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             recargarTabla();
             conexion.Close();
+        }
+
+        private void btnMod_Click(object sender, EventArgs e)
+        {
+            conexion.Open();
+
+            string consultaBorrar = "delete from TRABAJADORES where CEDULA"
+        }
+
+        private void dgvConsultaTabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

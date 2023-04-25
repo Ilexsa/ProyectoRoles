@@ -44,19 +44,20 @@
             // dgvConsultaTabla
             // 
             dgvConsultaTabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvConsultaTabla.Location = new Point(102, 192);
+            dgvConsultaTabla.Location = new Point(12, 192);
             dgvConsultaTabla.Name = "dgvConsultaTabla";
             dgvConsultaTabla.ReadOnly = true;
             dgvConsultaTabla.RowTemplate.Height = 25;
             dgvConsultaTabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvConsultaTabla.Size = new Size(581, 246);
+            dgvConsultaTabla.Size = new Size(340, 246);
             dgvConsultaTabla.TabIndex = 0;
             dgvConsultaTabla.CellClick += dataGridView1_CellContentClick;
+            dgvConsultaTabla.CellContentClick += dgvConsultaTabla_CellContentClick;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(121, 27);
+            label1.Location = new Point(12, 27);
             label1.Name = "label1";
             label1.Size = new Size(50, 15);
             label1.TabIndex = 1;
@@ -65,7 +66,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(121, 56);
+            label2.Location = new Point(12, 53);
             label2.Name = "label2";
             label2.Size = new Size(57, 15);
             label2.TabIndex = 2;
@@ -74,7 +75,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(121, 85);
+            label3.Location = new Point(17, 77);
             label3.Name = "label3";
             label3.Size = new Size(45, 15);
             label3.TabIndex = 3;
@@ -82,28 +83,28 @@
             // 
             // txtCedula
             // 
-            txtCedula.Location = new Point(177, 24);
+            txtCedula.Location = new Point(68, 24);
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(265, 23);
             txtCedula.TabIndex = 4;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(177, 53);
+            txtNombre.Location = new Point(68, 50);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(265, 23);
             txtNombre.TabIndex = 5;
             // 
             // txtCargo
             // 
-            txtCargo.Location = new Point(177, 82);
+            txtCargo.Location = new Point(68, 77);
             txtCargo.Name = "txtCargo";
             txtCargo.Size = new Size(265, 23);
             txtCargo.TabIndex = 6;
             // 
             // btnAgg
             // 
-            btnAgg.Location = new Point(102, 124);
+            btnAgg.Location = new Point(12, 124);
             btnAgg.Name = "btnAgg";
             btnAgg.Size = new Size(75, 23);
             btnAgg.TabIndex = 7;
@@ -113,17 +114,18 @@
             // 
             // btnMod
             // 
-            btnMod.Location = new Point(367, 124);
+            btnMod.Location = new Point(93, 124);
             btnMod.Name = "btnMod";
             btnMod.Size = new Size(75, 23);
             btnMod.TabIndex = 8;
             btnMod.Text = "Modificar";
             btnMod.TextAlign = ContentAlignment.BottomCenter;
             btnMod.UseVisualStyleBackColor = true;
+            btnMod.Click += btnMod_Click;
             // 
             // btnEli
             // 
-            btnEli.Location = new Point(608, 124);
+            btnEli.Location = new Point(177, 124);
             btnEli.Name = "btnEli";
             btnEli.Size = new Size(75, 23);
             btnEli.TabIndex = 9;
