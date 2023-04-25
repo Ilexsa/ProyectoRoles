@@ -24,7 +24,7 @@ namespace ProyectoRoles
         {
             OpenFileDialog oOpenFileDialog = new OpenFileDialog();
             oOpenFileDialog.Filter = "Archivos de Excel (*.xls;*.xlsx)|*.xls;*.xlsx";
-            oOpenFileDialog.Title = "Seleccione el archivo de Excel";
+            oOpenFileDialog.Title = "Seleccione el archivo de Excel"; 
 
             if (oOpenFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -36,6 +36,7 @@ namespace ProyectoRoles
                 using (FileStream fsSource = new FileStream(oOpenFileDialog.FileName, FileMode.Open, FileAccess.Read))
                 {
                     Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
                     IExcelDataReader reader = ExcelReaderFactory.CreateOpenXmlReader(fsSource, new ExcelReaderConfiguration()
                     {
                         FallbackEncoding = Encoding.GetEncoding(1252)
@@ -48,7 +49,7 @@ namespace ProyectoRoles
                             UseHeaderRow = true
                         }
                     });
-
+                    //transformacion a tabla virtual
                     foreach (DataTable tabla in dtsTablas.Tables)
                     {
                         cboHojas.Items.Add(tabla.TableName);
@@ -74,7 +75,7 @@ namespace ProyectoRoles
             // Aquí va la funcion de subir datos a la base de datos
             DataTable data = (DataTable)(dgvDatos.DataSource);
 
-            bool resultado = new Operaciones().SubirDatos(data);
+            bool resultado = new Operaciones().SubirDatosTrabajadores(data);
 
             if (resultado)
             {

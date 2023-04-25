@@ -35,15 +35,13 @@
             correoIndividualToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
             basesToolStripMenuItem = new ToolStripMenuItem();
-            subirRolesToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator3 = new ToolStripSeparator();
             consultarBaseToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
+            subirRolesToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator4 = new ToolStripSeparator();
             subirIndividualToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
             salirToolStripMenuItem = new ToolStripMenuItem();
-            subirTrabajadoresToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator6 = new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -92,10 +90,22 @@
             // 
             // basesToolStripMenuItem
             // 
-            basesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { subirRolesToolStripMenuItem, toolStripSeparator3, consultarBaseToolStripMenuItem, toolStripSeparator4, subirIndividualToolStripMenuItem, toolStripSeparator5, toolStripSeparator6, subirTrabajadoresToolStripMenuItem });
+            basesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultarBaseToolStripMenuItem, toolStripSeparator3, subirRolesToolStripMenuItem, toolStripSeparator4, subirIndividualToolStripMenuItem, toolStripSeparator5 });
             basesToolStripMenuItem.Name = "basesToolStripMenuItem";
             basesToolStripMenuItem.Size = new Size(43, 20);
             basesToolStripMenuItem.Text = "Base";
+            // 
+            // consultarBaseToolStripMenuItem
+            // 
+            consultarBaseToolStripMenuItem.Name = "consultarBaseToolStripMenuItem";
+            consultarBaseToolStripMenuItem.Size = new Size(180, 22);
+            consultarBaseToolStripMenuItem.Text = "Subir Trabajadores";
+            consultarBaseToolStripMenuItem.Click += consultarBaseToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(177, 6);
             // 
             // subirRolesToolStripMenuItem
             // 
@@ -103,18 +113,6 @@
             subirRolesToolStripMenuItem.Size = new Size(180, 22);
             subirRolesToolStripMenuItem.Text = "Subir roles";
             subirRolesToolStripMenuItem.Click += subirRolesToolStripMenuItem_Click;
-            // 
-            // toolStripSeparator3
-            // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(177, 6);
-            // 
-            // consultarBaseToolStripMenuItem
-            // 
-            consultarBaseToolStripMenuItem.Name = "consultarBaseToolStripMenuItem";
-            consultarBaseToolStripMenuItem.Size = new Size(180, 22);
-            consultarBaseToolStripMenuItem.Text = "Consultar Base";
-            consultarBaseToolStripMenuItem.Click += consultarBaseToolStripMenuItem_Click;
             // 
             // toolStripSeparator4
             // 
@@ -140,21 +138,11 @@
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
-            // subirTrabajadoresToolStripMenuItem
-            // 
-            subirTrabajadoresToolStripMenuItem.Name = "subirTrabajadoresToolStripMenuItem";
-            subirTrabajadoresToolStripMenuItem.Size = new Size(180, 22);
-            subirTrabajadoresToolStripMenuItem.Text = "Subir Trabajadores";
-            // 
-            // toolStripSeparator6
-            // 
-            toolStripSeparator6.Name = "toolStripSeparator6";
-            toolStripSeparator6.Size = new Size(177, 6);
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackgroundImage = Properties.Resources.Untitled_1_min_2;
             ClientSize = new Size(800, 450);
             Controls.Add(menuStrip1);
@@ -162,6 +150,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Sistema Roles";
+            WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -184,7 +173,5 @@
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem subirIndividualToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator5;
-        private ToolStripSeparator toolStripSeparator6;
-        private ToolStripMenuItem subirTrabajadoresToolStripMenuItem;
     }
 }

@@ -10,7 +10,7 @@ namespace ProyectoRoles
     public class ConexionBase
     {
         //conexion a a la base de datos
-        public static string cadenaConexion = "Data Source=DESKTOP-VFLR3HI\\SQLEXPRESS;Initial Catalog=ROLES; Integrated Security=True";
+        public static string cadenaConexion = "Data Source=SISTEMAS1\\SQLEXPRESS;Initial Catalog=ROLES; Integrated Security=True";
         //public SqlConnection conectarBD = new SqlConnection();
 
         //public ConexionBase()

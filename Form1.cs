@@ -54,5 +54,10 @@ namespace ProyectoRoles
             //ConexionBase conexion = new ConexionBase();
             //conexion.abrir();
         }
+
+        private void subirTrabajadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

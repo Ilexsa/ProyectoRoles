@@ -38,6 +38,8 @@
             btnAgg = new Button();
             btnMod = new Button();
             btnEli = new Button();
+            cmbLocalidad = new ComboBox();
+            cmbTrabajadores = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvConsultaTabla).BeginInit();
             SuspendLayout();
             // 
@@ -132,11 +134,29 @@
             btnEli.Text = "Eliminar";
             btnEli.UseVisualStyleBackColor = true;
             // 
+            // cmbLocalidad
+            // 
+            cmbLocalidad.FormattingEnabled = true;
+            cmbLocalidad.Location = new Point(472, 27);
+            cmbLocalidad.Name = "cmbLocalidad";
+            cmbLocalidad.Size = new Size(121, 23);
+            cmbLocalidad.TabIndex = 10;
+            // 
+            // cmbTrabajadores
+            // 
+            cmbTrabajadores.FormattingEnabled = true;
+            cmbTrabajadores.Location = new Point(472, 77);
+            cmbTrabajadores.Name = "cmbTrabajadores";
+            cmbTrabajadores.Size = new Size(121, 23);
+            cmbTrabajadores.TabIndex = 11;
+            // 
             // FormConsultarBases
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cmbTrabajadores);
+            Controls.Add(cmbLocalidad);
             Controls.Add(btnEli);
             Controls.Add(btnMod);
             Controls.Add(btnAgg);
@@ -167,5 +187,7 @@
         private Button btnAgg;
         private Button btnMod;
         private Button btnEli;
+        private ComboBox cmbLocalidad;
+        private ComboBox cmbTrabajadores;
     }
 }
