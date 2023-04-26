@@ -12,9 +12,9 @@ using System.Xml.Serialization;
 
 namespace ProyectoRoles
 {
-    public partial class FormConsultarBases : Form
+    public partial class FormSubirTrabajadores : Form
     {
-        public FormConsultarBases()
+        public FormSubirTrabajadores()
         {
             InitializeComponent();
         }
@@ -22,8 +22,10 @@ namespace ProyectoRoles
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtCedula.Text = dgvConsultaTabla.SelectedCells[0].Value.ToString();
-            txtNombre.Text = dgvConsultaTabla.SelectedCells[1].Value.ToString();
-            txtCargo.Text = dgvConsultaTabla.SelectedCells[2].Value.ToString();
+            txtNombre.Text = dgvConsultaTabla.SelectedCells[3].Value.ToString();
+            txtCargo.Text = dgvConsultaTabla.SelectedCells[5].Value.ToString();
+            txtSueldo.Text = dgvConsultaTabla.SelectedCells[6].Value.ToString();
+            txtDiscapacidad.Text = dgvConsultaTabla.SelectedCells[7].Value.ToString();
         }
         private void recargarTabla()
         {
@@ -53,24 +55,43 @@ namespace ProyectoRoles
             //y ahora le vamos a dar el origen de los datos a dgv.
             dgvConsultaTabla.DataSource = dtTRABAJADORES;
 
-            //rellenar combo_box
-            DataTable dtLocalidades =new DataTable();
-            string llenarcmb = "select ID,LOCALIDAD from <LOCALIDADES>";
-            SqlDataAdapter adaptadorLoc =new SqlDataAdapter(llenarcmb, conexion);
+            //rellenar combo_box Localidad
+            DataTable dtLocalidades = new DataTable();
+            string llenarcmbL = "select ID,LOCALIDAD from LOCALIDADES";
+            SqlDataAdapter adaptadorLoc = new SqlDataAdapter(llenarcmbL, conexion);
             adaptadorLoc.Fill(dtLocalidades);
+            cmbLocalidad.DataSource = dtLocalidades;
             cmbLocalidad.DisplayMember = "LOCALIDAD";
             cmbLocalidad.ValueMember = "ID";
-            cmbLocalidad.DataSource = dtLocalidades;
+
+            //rellenar combo_box Departamento
+            DataTable dtDepartamentos = new DataTable();
+            string llenarcmbD = "select ID,DEPARTAMENTO from DEPARTAMENTOS";
+            SqlDataAdapter adptadorDep = new SqlDataAdapter(llenarcmbD, conexion);
+            adptadorDep.Fill(dtDepartamentos);
+            cmbDepartamento.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbDepartamento.DataSource = dtDepartamentos;
+            cmbDepartamento.DisplayMember = "DEPARTAMENTO";
+            cmbDepartamento.ValueMember = "ID";
+            //CAMBIAR FORMATO DATETIMEPICKER
+            //dtpFechaI.Format = DateTimePickerFormat.Custom;
+            dtpFechaI.CustomFormat = "dd-MM-yyyy";
         }
 
         private void btnAgg_Click(object sender, EventArgs e)
         {
             conexion.Open();
-            //Inserta los datos a la base dejando en claro el query a traves del string
-            string add = "insert into Nomina values('" + txtCedula.Text + "','" + txtNombre.Text + "','" + txtCargo.Text + "')";
+            double sueldo = Convert.ToDouble(txtSueldo.Text);
+            string add = "insert into TRABAJADORES values (@CEDULA, @IdLocalidad, @IdDepartamento, @NOMBRES, @FECHA_INGRESO, @CARGO, @SUELDO_BASE, @PER_DISCAPACIDAD)";
             SqlCommand comando = new SqlCommand(add, conexion);
-            //ahora declarado el objet comando que obtiene comoparametros el string add que tiene el query, y el string conexion   
-            //que tiene las llaves de conexion
+            comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
+            comando.Parameters.AddWithValue("@IdLocalidad", cmbLocalidad.SelectedValue);
+            comando.Parameters.AddWithValue("@IdDepartamento", cmbDepartamento.SelectedValue);
+            comando.Parameters.AddWithValue("@NOMBRES", txtNombre.Text.ToUpper());
+            comando.Parameters.AddWithValue("@FECHA_INGRESO", dtpFechaI.Value);
+            comando.Parameters.AddWithValue("@CARGO", txtCargo.Text.ToUpper());
+            comando.Parameters.AddWithValue("@SUELDO_BASE", sueldo);
+            comando.Parameters.AddWithValue("@PER_DISCAPACIDAD", txtDiscapacidad.Text.ToUpper());
             comando.ExecuteNonQuery();
             MessageBox.Show("Registro Exitoso", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             recargarTabla();
@@ -79,12 +100,26 @@ namespace ProyectoRoles
 
         private void btnMod_Click(object sender, EventArgs e)
         {
+        }
+
+        private void dgvConsultaTabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEli_Click(object sender, EventArgs e)
+        {
             conexion.Open();
 
             string consultaBorrar = "delete from TRABAJADORES where CEDULA";
         }
 
-        private void dgvConsultaTabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
 
         }

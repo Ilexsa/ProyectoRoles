@@ -33,7 +33,7 @@ namespace ProyectoRoles
 
         private void consultarBaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormConsultarBases formConsultarBases = new FormConsultarBases();
+            FormSubirTrabajadores formConsultarBases = new FormSubirTrabajadores();
             formConsultarBases.ShowDialog();
         }
 
