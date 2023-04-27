@@ -26,6 +26,7 @@ namespace ProyectoRoles
             txtCargo.Text = dgvConsultaTabla.SelectedCells[5].Value.ToString();
             txtSueldo.Text = dgvConsultaTabla.SelectedCells[6].Value.ToString();
             txtDiscapacidad.Text = dgvConsultaTabla.SelectedCells[7].Value.ToString();
+            dtpFechaI.Value = Convert.ToDateTime(dgvConsultaTabla.SelectedCells[4].Value.ToString());
         }
         private void recargarTabla()
         {
@@ -100,6 +101,33 @@ namespace ProyectoRoles
 
         private void btnMod_Click(object sender, EventArgs e)
         {
+            conexion.Open();
+            double sueldo = Convert.ToDouble(txtSueldo.Text);
+            int flag = 0;
+            string mod = "update TRABAJADORES set CEDULA=@CEDULA,Idlocalidad=@Idlocalidad, IdDepartamento=@IdDepartamento, NOMBRES=@NOMBRES," +
+                "FECHA_INGRESO=@FECHA_INGRESO, CARGO=@CARGO, SUELDO_BASE=@SUELDO_BASE, PER_DISCAPACIDAD=@PER_DISCAPACIDAD";
+            SqlCommand comando = new SqlCommand(mod, conexion);
+            comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
+            comando.Parameters.AddWithValue("@IdLocalidad", cmbLocalidad.SelectedValue);
+            comando.Parameters.AddWithValue("@IdDepartamento", cmbDepartamento.SelectedValue);
+            comando.Parameters.AddWithValue("@NOMBRES",txtNombre.Text);
+            comando.Parameters.AddWithValue("@FECHA_INGRESO",dtpFechaI.Value);
+            comando.Parameters.AddWithValue("@CARGO", txtCargo.Text);
+            comando.Parameters.AddWithValue("@SUELDO_BASE", sueldo);
+            comando.Parameters.AddWithValue("@PER_DISCAPACIDAD", txtDiscapacidad.Text.ToUpper());
+            flag = comando.ExecuteNonQuery(); // 1 es que funko 0 es que no funko
+
+            if (flag == 1)
+            {
+                MessageBox.Show("Registro modificado con exito", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (flag == 0)
+            {
+                MessageBox.Show("No se pudo modificar el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            recargarTabla();
+            conexion.Close();
+
         }
 
         private void dgvConsultaTabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -114,14 +142,39 @@ namespace ProyectoRoles
 
         private void btnEli_Click(object sender, EventArgs e)
         {
+            int flag =0;
             conexion.Open();
+            DialogResult respuesta = MessageBox.Show("¿Está seguro de que desea eliminar el registro seleccionado?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            string consultaBorrar = "delete from TRABAJADORES where CEDULA = CEDULA";
+            SqlCommand  comando = new SqlCommand(consultaBorrar, conexion);
+            comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
+            flag = comando.ExecuteNonQuery(); // 1 es que funko 0 es que no funko
 
-            string consultaBorrar = "delete from TRABAJADORES where CEDULA";
+            if (flag == 1)
+            {
+                MessageBox.Show("Registro eliminado con exito","Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (flag == 0) {
+                MessageBox.Show("No se pudo borrar el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                recargarTabla();
+                conexion.Close();
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtCargo.Clear();
+            txtDiscapacidad.Clear();
+            txtNombre.Clear();
+            txtCargo.Clear();
+            txtNombre.Clear();
+            txtSueldo.Clear();
+            txtCedula.Clear();
         }
     }
 }

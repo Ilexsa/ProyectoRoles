@@ -48,15 +48,18 @@
             txtSueldo = new TextBox();
             label8 = new Label();
             txtDiscapacidad = new TextBox();
+            btnLimpiar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvConsultaTabla).BeginInit();
             SuspendLayout();
             // 
             // dgvConsultaTabla
             // 
+            dgvConsultaTabla.AllowUserToAddRows = false;
+            dgvConsultaTabla.AllowUserToDeleteRows = false;
+            dgvConsultaTabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvConsultaTabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvConsultaTabla.Location = new Point(12, 192);
             dgvConsultaTabla.Name = "dgvConsultaTabla";
-            dgvConsultaTabla.ReadOnly = true;
             dgvConsultaTabla.RowTemplate.Height = 25;
             dgvConsultaTabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvConsultaTabla.Size = new Size(776, 246);
@@ -231,11 +234,22 @@
             txtDiscapacidad.Size = new Size(239, 23);
             txtDiscapacidad.TabIndex = 19;
             // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Location = new Point(713, 12);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(75, 23);
+            btnLimpiar.TabIndex = 20;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
             // FormSubirTrabajadores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnLimpiar);
             Controls.Add(txtDiscapacidad);
             Controls.Add(label8);
             Controls.Add(txtSueldo);
@@ -292,5 +306,6 @@
         private TextBox txtSueldo;
         private Label label8;
         private TextBox txtDiscapacidad;
+        private Button btnLimpiar;
     }
 }
