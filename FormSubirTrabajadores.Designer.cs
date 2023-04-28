@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSubirTrabajadores));
             dgvConsultaTabla = new DataGridView();
             label1 = new Label();
             label2 = new Label();
@@ -119,11 +118,11 @@
             // 
             // btnAgg
             // 
-            btnAgg.Image = (Image)resources.GetObject("btnAgg.Image");
+            btnAgg.Image = Properties.Resources.Untitled_1_min_2;
             btnAgg.ImageAlign = ContentAlignment.TopLeft;
             btnAgg.Location = new Point(24, 15);
             btnAgg.Name = "btnAgg";
-            btnAgg.Size = new Size(76, 23);
+            btnAgg.Size = new Size(64, 67);
             btnAgg.TabIndex = 7;
             btnAgg.Text = "Agregar";
             btnAgg.UseVisualStyleBackColor = true;
