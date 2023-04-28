@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSubirTrabajadores));
             dgvConsultaTabla = new DataGridView();
             label1 = new Label();
             label2 = new Label();
@@ -49,6 +50,7 @@
             label8 = new Label();
             txtDiscapacidad = new TextBox();
             btnLimpiar = new Button();
+            chkDiscapacidad = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dgvConsultaTabla).BeginInit();
             SuspendLayout();
             // 
@@ -58,11 +60,11 @@
             dgvConsultaTabla.AllowUserToDeleteRows = false;
             dgvConsultaTabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvConsultaTabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvConsultaTabla.Location = new Point(12, 192);
+            dgvConsultaTabla.Location = new Point(466, 12);
             dgvConsultaTabla.Name = "dgvConsultaTabla";
             dgvConsultaTabla.RowTemplate.Height = 25;
             dgvConsultaTabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvConsultaTabla.Size = new Size(776, 246);
+            dgvConsultaTabla.Size = new Size(606, 327);
             dgvConsultaTabla.TabIndex = 0;
             dgvConsultaTabla.CellClick += dataGridView1_CellContentClick;
             dgvConsultaTabla.CellContentClick += dgvConsultaTabla_CellContentClick;
@@ -70,7 +72,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 27);
+            label1.Location = new Point(38, 47);
             label1.Name = "label1";
             label1.Size = new Size(50, 15);
             label1.TabIndex = 1;
@@ -79,7 +81,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(5, 56);
+            label2.Location = new Point(31, 76);
             label2.Name = "label2";
             label2.Size = new Size(57, 15);
             label2.TabIndex = 2;
@@ -88,7 +90,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(17, 85);
+            label3.Location = new Point(43, 105);
             label3.Name = "label3";
             label3.Size = new Size(45, 15);
             label3.TabIndex = 3;
@@ -96,30 +98,32 @@
             // 
             // txtCedula
             // 
-            txtCedula.Location = new Point(68, 24);
+            txtCedula.Location = new Point(94, 44);
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(265, 23);
             txtCedula.TabIndex = 4;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(68, 53);
+            txtNombre.Location = new Point(94, 73);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(265, 23);
             txtNombre.TabIndex = 5;
             // 
             // txtCargo
             // 
-            txtCargo.Location = new Point(68, 82);
+            txtCargo.Location = new Point(94, 102);
             txtCargo.Name = "txtCargo";
             txtCargo.Size = new Size(265, 23);
             txtCargo.TabIndex = 6;
             // 
             // btnAgg
             // 
-            btnAgg.Location = new Point(5, 163);
+            btnAgg.Image = (Image)resources.GetObject("btnAgg.Image");
+            btnAgg.ImageAlign = ContentAlignment.TopLeft;
+            btnAgg.Location = new Point(24, 15);
             btnAgg.Name = "btnAgg";
-            btnAgg.Size = new Size(75, 23);
+            btnAgg.Size = new Size(76, 23);
             btnAgg.TabIndex = 7;
             btnAgg.Text = "Agregar";
             btnAgg.UseVisualStyleBackColor = true;
@@ -127,9 +131,9 @@
             // 
             // btnMod
             // 
-            btnMod.Location = new Point(377, 163);
+            btnMod.Location = new Point(130, 15);
             btnMod.Name = "btnMod";
-            btnMod.Size = new Size(75, 23);
+            btnMod.Size = new Size(65, 23);
             btnMod.TabIndex = 8;
             btnMod.Text = "Modificar";
             btnMod.TextAlign = ContentAlignment.BottomCenter;
@@ -138,9 +142,9 @@
             // 
             // btnEli
             // 
-            btnEli.Location = new Point(713, 163);
+            btnEli.Location = new Point(244, 15);
             btnEli.Name = "btnEli";
-            btnEli.Size = new Size(75, 23);
+            btnEli.Size = new Size(65, 23);
             btnEli.TabIndex = 9;
             btnEli.Text = "Eliminar";
             btnEli.UseVisualStyleBackColor = true;
@@ -150,7 +154,7 @@
             // 
             cmbLocalidad.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbLocalidad.FormattingEnabled = true;
-            cmbLocalidad.Location = new Point(472, 29);
+            cmbLocalidad.Location = new Point(94, 169);
             cmbLocalidad.Name = "cmbLocalidad";
             cmbLocalidad.Size = new Size(121, 23);
             cmbLocalidad.TabIndex = 10;
@@ -159,7 +163,7 @@
             // 
             cmbDepartamento.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDepartamento.FormattingEnabled = true;
-            cmbDepartamento.Location = new Point(472, 82);
+            cmbDepartamento.Location = new Point(339, 169);
             cmbDepartamento.Name = "cmbDepartamento";
             cmbDepartamento.Size = new Size(121, 23);
             cmbDepartamento.TabIndex = 11;
@@ -167,7 +171,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(402, 32);
+            label4.Location = new Point(24, 172);
             label4.Name = "label4";
             label4.Size = new Size(64, 15);
             label4.TabIndex = 12;
@@ -176,7 +180,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(377, 90);
+            label5.Location = new Point(244, 172);
             label5.Name = "label5";
             label5.Size = new Size(89, 15);
             label5.TabIndex = 13;
@@ -186,7 +190,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(364, 130);
+            label6.Location = new Point(5, 217);
             label6.Name = "label6";
             label6.Size = new Size(102, 15);
             label6.TabIndex = 14;
@@ -196,7 +200,7 @@
             // dtpFechaI
             // 
             dtpFechaI.Format = DateTimePickerFormat.Custom;
-            dtpFechaI.Location = new Point(472, 124);
+            dtpFechaI.Location = new Point(113, 217);
             dtpFechaI.Name = "dtpFechaI";
             dtpFechaI.Size = new Size(200, 23);
             dtpFechaI.TabIndex = 15;
@@ -205,7 +209,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(17, 113);
+            label7.Location = new Point(39, 133);
             label7.Name = "label7";
             label7.Size = new Size(49, 15);
             label7.TabIndex = 16;
@@ -213,15 +217,16 @@
             // 
             // txtSueldo
             // 
-            txtSueldo.Location = new Point(68, 110);
+            txtSueldo.Location = new Point(94, 130);
             txtSueldo.Name = "txtSueldo";
-            txtSueldo.Size = new Size(70, 23);
+            txtSueldo.Size = new Size(110, 23);
             txtSueldo.TabIndex = 17;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(5, 142);
+            label8.Enabled = false;
+            label8.Location = new Point(5, 287);
             label8.Name = "label8";
             label8.Size = new Size(83, 15);
             label8.TabIndex = 18;
@@ -229,26 +234,39 @@
             // 
             // txtDiscapacidad
             // 
-            txtDiscapacidad.Location = new Point(94, 139);
+            txtDiscapacidad.Enabled = false;
+            txtDiscapacidad.Location = new Point(95, 284);
             txtDiscapacidad.Name = "txtDiscapacidad";
             txtDiscapacidad.Size = new Size(239, 23);
             txtDiscapacidad.TabIndex = 19;
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(713, 12);
+            btnLimpiar.Location = new Point(355, 15);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(75, 23);
+            btnLimpiar.Size = new Size(65, 23);
             btnLimpiar.TabIndex = 20;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
             btnLimpiar.Click += btnLimpiar_Click;
             // 
+            // chkDiscapacidad
+            // 
+            chkDiscapacidad.AutoSize = true;
+            chkDiscapacidad.Location = new Point(5, 259);
+            chkDiscapacidad.Name = "chkDiscapacidad";
+            chkDiscapacidad.Size = new Size(245, 19);
+            chkDiscapacidad.TabIndex = 21;
+            chkDiscapacidad.Text = "El colaborador poseé alguna discapacida?";
+            chkDiscapacidad.UseVisualStyleBackColor = true;
+            chkDiscapacidad.CheckedChanged += chkDiscapacidad_CheckedChanged;
+            // 
             // FormSubirTrabajadores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1084, 361);
+            Controls.Add(chkDiscapacidad);
             Controls.Add(btnLimpiar);
             Controls.Add(txtDiscapacidad);
             Controls.Add(label8);
@@ -270,6 +288,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dgvConsultaTabla);
+            ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
@@ -277,7 +296,7 @@
             Name = "FormSubirTrabajadores";
             SizeGripStyle = SizeGripStyle.Show;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Resgristrar Trabajadores";
+            Text = "Registrar Trabajadores";
             Load += FormConsultarBases_Load;
             ((System.ComponentModel.ISupportInitialize)dgvConsultaTabla).EndInit();
             ResumeLayout(false);
@@ -307,5 +326,6 @@
         private Label label8;
         private TextBox txtDiscapacidad;
         private Button btnLimpiar;
+        private CheckBox chkDiscapacidad;
     }
 }

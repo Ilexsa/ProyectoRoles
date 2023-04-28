@@ -110,8 +110,8 @@ namespace ProyectoRoles
             comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
             comando.Parameters.AddWithValue("@IdLocalidad", cmbLocalidad.SelectedValue);
             comando.Parameters.AddWithValue("@IdDepartamento", cmbDepartamento.SelectedValue);
-            comando.Parameters.AddWithValue("@NOMBRES",txtNombre.Text);
-            comando.Parameters.AddWithValue("@FECHA_INGRESO",dtpFechaI.Value);
+            comando.Parameters.AddWithValue("@NOMBRES", txtNombre.Text);
+            comando.Parameters.AddWithValue("@FECHA_INGRESO", dtpFechaI.Value);
             comando.Parameters.AddWithValue("@CARGO", txtCargo.Text);
             comando.Parameters.AddWithValue("@SUELDO_BASE", sueldo);
             comando.Parameters.AddWithValue("@PER_DISCAPACIDAD", txtDiscapacidad.Text.ToUpper());
@@ -142,23 +142,24 @@ namespace ProyectoRoles
 
         private void btnEli_Click(object sender, EventArgs e)
         {
-            int flag =0;
+            int flag = 0;
             conexion.Open();
             DialogResult respuesta = MessageBox.Show("¿Está seguro de que desea eliminar el registro seleccionado?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             string consultaBorrar = "delete from TRABAJADORES where CEDULA = CEDULA";
-            SqlCommand  comando = new SqlCommand(consultaBorrar, conexion);
+            SqlCommand comando = new SqlCommand(consultaBorrar, conexion);
             comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
             flag = comando.ExecuteNonQuery(); // 1 es que funko 0 es que no funko
 
             if (flag == 1)
             {
-                MessageBox.Show("Registro eliminado con exito","Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Registro eliminado con exito", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (flag == 0) {
+            else if (flag == 0)
+            {
                 MessageBox.Show("No se pudo borrar el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                recargarTabla();
-                conexion.Close();
             }
+            recargarTabla();
+            conexion.Close();
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -175,6 +176,12 @@ namespace ProyectoRoles
             txtNombre.Clear();
             txtSueldo.Clear();
             txtCedula.Clear();
+        }
+
+        private void chkDiscapacidad_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDiscapacidad.Enabled = chkDiscapacidad.Checked;
+            label8.Enabled = chkDiscapacidad.Checked;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             menuStrip1 = new MenuStrip();
             procesosToolStripMenuItem = new ToolStripMenuItem();
             correosMasivosToolStripMenuItem = new ToolStripMenuItem();
@@ -47,11 +48,12 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.BackColor = Color.FromArgb(192, 255, 255);
+            menuStrip1.BackColor = Color.Azure;
             menuStrip1.Items.AddRange(new ToolStripItem[] { procesosToolStripMenuItem, basesToolStripMenuItem, salirToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Padding = new Padding(9, 3, 0, 3);
+            menuStrip1.Size = new Size(1424, 32);
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -59,95 +61,102 @@
             // 
             procesosToolStripMenuItem.CheckOnClick = true;
             procesosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { correosMasivosToolStripMenuItem, toolStripSeparator1, correoIndividualToolStripMenuItem, toolStripSeparator2 });
+            procesosToolStripMenuItem.Font = new Font("Palatino Linotype", 12F, FontStyle.Regular, GraphicsUnit.Point);
             procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
-            procesosToolStripMenuItem.Size = new Size(66, 20);
+            procesosToolStripMenuItem.Size = new Size(80, 26);
             procesosToolStripMenuItem.Text = "Procesos";
             procesosToolStripMenuItem.Click += procesosToolStripMenuItem_Click;
             // 
             // correosMasivosToolStripMenuItem
             // 
             correosMasivosToolStripMenuItem.Name = "correosMasivosToolStripMenuItem";
-            correosMasivosToolStripMenuItem.Size = new Size(165, 22);
+            correosMasivosToolStripMenuItem.Size = new Size(199, 26);
             correosMasivosToolStripMenuItem.Text = "Correos Masivos";
             correosMasivosToolStripMenuItem.Click += correosMasivosToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(162, 6);
+            toolStripSeparator1.Size = new Size(196, 6);
             // 
             // correoIndividualToolStripMenuItem
             // 
             correoIndividualToolStripMenuItem.Name = "correoIndividualToolStripMenuItem";
-            correoIndividualToolStripMenuItem.Size = new Size(165, 22);
+            correoIndividualToolStripMenuItem.Size = new Size(199, 26);
             correoIndividualToolStripMenuItem.Text = "Correo Individual";
             correoIndividualToolStripMenuItem.Click += correoIndividualToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(162, 6);
+            toolStripSeparator2.Size = new Size(196, 6);
             // 
             // basesToolStripMenuItem
             // 
             basesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultarBaseToolStripMenuItem, toolStripSeparator3, subirRolesToolStripMenuItem, toolStripSeparator4, subirIndividualToolStripMenuItem, toolStripSeparator5 });
+            basesToolStripMenuItem.Font = new Font("Palatino Linotype", 12F, FontStyle.Regular, GraphicsUnit.Point);
             basesToolStripMenuItem.Name = "basesToolStripMenuItem";
-            basesToolStripMenuItem.Size = new Size(43, 20);
+            basesToolStripMenuItem.Size = new Size(53, 26);
             basesToolStripMenuItem.Text = "Base";
             // 
             // consultarBaseToolStripMenuItem
             // 
             consultarBaseToolStripMenuItem.Name = "consultarBaseToolStripMenuItem";
-            consultarBaseToolStripMenuItem.Size = new Size(180, 22);
+            consultarBaseToolStripMenuItem.Size = new Size(209, 26);
             consultarBaseToolStripMenuItem.Text = "Subir Trabajadores";
             consultarBaseToolStripMenuItem.Click += consultarBaseToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(177, 6);
+            toolStripSeparator3.Size = new Size(206, 6);
             // 
             // subirRolesToolStripMenuItem
             // 
             subirRolesToolStripMenuItem.Name = "subirRolesToolStripMenuItem";
-            subirRolesToolStripMenuItem.Size = new Size(180, 22);
+            subirRolesToolStripMenuItem.Size = new Size(209, 26);
             subirRolesToolStripMenuItem.Text = "Subir roles";
             subirRolesToolStripMenuItem.Click += subirRolesToolStripMenuItem_Click;
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(177, 6);
+            toolStripSeparator4.Size = new Size(206, 6);
             // 
             // subirIndividualToolStripMenuItem
             // 
             subirIndividualToolStripMenuItem.Name = "subirIndividualToolStripMenuItem";
-            subirIndividualToolStripMenuItem.Size = new Size(180, 22);
+            subirIndividualToolStripMenuItem.Size = new Size(209, 26);
             subirIndividualToolStripMenuItem.Text = "Subir Individual";
             subirIndividualToolStripMenuItem.Click += subirIndividualToolStripMenuItem_Click;
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(177, 6);
+            toolStripSeparator5.Size = new Size(206, 6);
             // 
             // salirToolStripMenuItem
             // 
+            salirToolStripMenuItem.Font = new Font("Palatino Linotype", 12F, FontStyle.Regular, GraphicsUnit.Point);
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(41, 20);
+            salirToolStripMenuItem.Size = new Size(53, 26);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            BackgroundImage = Properties.Resources.Untitled_1_min_2;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.ScrollBar;
+            BackgroundImage = Properties.Resources._18771_scaled__1_;
+            ClientSize = new Size(1424, 835);
             Controls.Add(menuStrip1);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Font = new Font("Palatino Linotype", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            ForeColor = SystemColors.ControlText;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(4);
             Name = "Form1";
             Text = "Sistema Roles";
             WindowState = FormWindowState.Maximized;
