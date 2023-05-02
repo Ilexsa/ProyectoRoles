@@ -122,7 +122,7 @@
             btnAgg.ImageAlign = ContentAlignment.TopLeft;
             btnAgg.Location = new Point(24, 15);
             btnAgg.Name = "btnAgg";
-            btnAgg.Size = new Size(64, 67);
+            btnAgg.Size = new Size(64, 23);
             btnAgg.TabIndex = 7;
             btnAgg.Text = "Agregar";
             btnAgg.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@
             label6.Size = new Size(102, 15);
             label6.TabIndex = 14;
             label6.Text = "Fecha de Ingreso :";
-            label6.Click += label6_Click;
+            //label6.Click += label6_Click;
             // 
             // dtpFechaI
             // 

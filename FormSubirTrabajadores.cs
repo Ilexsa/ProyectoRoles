@@ -21,12 +21,22 @@ namespace ProyectoRoles
         SqlConnection conexion = new SqlConnection(ConexionBase.cadenaConexion);
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtCedula.Text = dgvConsultaTabla.SelectedCells[0].Value.ToString();
-            txtNombre.Text = dgvConsultaTabla.SelectedCells[3].Value.ToString();
-            txtCargo.Text = dgvConsultaTabla.SelectedCells[5].Value.ToString();
-            txtSueldo.Text = dgvConsultaTabla.SelectedCells[6].Value.ToString();
-            txtDiscapacidad.Text = dgvConsultaTabla.SelectedCells[7].Value.ToString();
-            dtpFechaI.Value = Convert.ToDateTime(dgvConsultaTabla.SelectedCells[4].Value.ToString());
+            try
+            {
+                DateTime fecha = Convert.ToDateTime(dgvConsultaTabla.SelectedCells[4].Value.ToString());
+                txtCedula.Text = dgvConsultaTabla.SelectedCells[0].Value.ToString();
+                txtNombre.Text = dgvConsultaTabla.SelectedCells[3].Value.ToString();
+                txtCargo.Text = dgvConsultaTabla.SelectedCells[5].Value.ToString();
+                txtSueldo.Text = dgvConsultaTabla.SelectedCells[6].Value.ToString();
+                txtDiscapacidad.Text = dgvConsultaTabla.SelectedCells[7].Value.ToString();
+                dtpFechaI.Value = fecha;
+                cmbLocalidad.SelectedValue = dgvConsultaTabla.SelectedCells[1].Value.ToString();
+                cmbDepartamento.SelectedValue = dgvConsultaTabla.SelectedCells[2].Value.ToString();
+
+            }
+            catch (Exception ex){
+                MessageBox.Show(ex.Message,"No hay datos",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
         }
         private void recargarTabla()
         {
@@ -82,52 +92,65 @@ namespace ProyectoRoles
         private void btnAgg_Click(object sender, EventArgs e)
         {
             conexion.Open();
-            double sueldo = Convert.ToDouble(txtSueldo.Text);
-            string add = "insert into TRABAJADORES values (@CEDULA, @IdLocalidad, @IdDepartamento, @NOMBRES, @FECHA_INGRESO, @CARGO, @SUELDO_BASE, @PER_DISCAPACIDAD)";
-            SqlCommand comando = new SqlCommand(add, conexion);
-            comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
-            comando.Parameters.AddWithValue("@IdLocalidad", cmbLocalidad.SelectedValue);
-            comando.Parameters.AddWithValue("@IdDepartamento", cmbDepartamento.SelectedValue);
-            comando.Parameters.AddWithValue("@NOMBRES", txtNombre.Text.ToUpper());
-            comando.Parameters.AddWithValue("@FECHA_INGRESO", dtpFechaI.Value);
-            comando.Parameters.AddWithValue("@CARGO", txtCargo.Text.ToUpper());
-            comando.Parameters.AddWithValue("@SUELDO_BASE", sueldo);
-            comando.Parameters.AddWithValue("@PER_DISCAPACIDAD", txtDiscapacidad.Text.ToUpper());
-            comando.ExecuteNonQuery();
-            MessageBox.Show("Registro Exitoso", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            recargarTabla();
+            try
+            {
+                double sueldo = Convert.ToDouble(txtSueldo.Text);
+                string add = "insert into TRABAJADORES values (@CEDULA, @IdLocalidad, @IdDepartamento, @NOMBRES, @FECHA_INGRESO, @CARGO, @SUELDO_BASE, @PER_DISCAPACIDAD)";
+                SqlCommand comando = new SqlCommand(add, conexion);
+                comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
+                comando.Parameters.AddWithValue("@IdLocalidad", cmbLocalidad.SelectedValue);
+                comando.Parameters.AddWithValue("@IdDepartamento", cmbDepartamento.SelectedValue);
+                comando.Parameters.AddWithValue("@NOMBRES", txtNombre.Text.ToUpper());
+                comando.Parameters.AddWithValue("@FECHA_INGRESO", dtpFechaI.Value);
+                comando.Parameters.AddWithValue("@CARGO", txtCargo.Text.ToUpper());
+                comando.Parameters.AddWithValue("@SUELDO_BASE", sueldo);
+                comando.Parameters.AddWithValue("@PER_DISCAPACIDAD", txtDiscapacidad.Text.ToUpper());
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Registro Exitoso", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                recargarTabla(); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             conexion.Close();
         }
 
         private void btnMod_Click(object sender, EventArgs e)
         {
             conexion.Open();
-            double sueldo = Convert.ToDouble(txtSueldo.Text);
-            int flag = 0;
-            string mod = "update TRABAJADORES set CEDULA=@CEDULA,Idlocalidad=@Idlocalidad, IdDepartamento=@IdDepartamento, NOMBRES=@NOMBRES," +
-                "FECHA_INGRESO=@FECHA_INGRESO, CARGO=@CARGO, SUELDO_BASE=@SUELDO_BASE, PER_DISCAPACIDAD=@PER_DISCAPACIDAD";
-            SqlCommand comando = new SqlCommand(mod, conexion);
-            comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
-            comando.Parameters.AddWithValue("@IdLocalidad", cmbLocalidad.SelectedValue);
-            comando.Parameters.AddWithValue("@IdDepartamento", cmbDepartamento.SelectedValue);
-            comando.Parameters.AddWithValue("@NOMBRES", txtNombre.Text);
-            comando.Parameters.AddWithValue("@FECHA_INGRESO", dtpFechaI.Value);
-            comando.Parameters.AddWithValue("@CARGO", txtCargo.Text);
-            comando.Parameters.AddWithValue("@SUELDO_BASE", sueldo);
-            comando.Parameters.AddWithValue("@PER_DISCAPACIDAD", txtDiscapacidad.Text.ToUpper());
-            flag = comando.ExecuteNonQuery(); // 1 es que funko 0 es que no funko
+            try
+            {
+                double sueldo = Convert.ToDouble(txtSueldo.Text);
+                int flag = 0;
+                string mod = "update TRABAJADORES set CEDULA=@CEDULA,Idlocalidad=@Idlocalidad, IdDepartamento=@IdDepartamento, NOMBRES=@NOMBRES," +
+                    "FECHA_INGRESO=@FECHA_INGRESO, CARGO=@CARGO, SUELDO_BASE=@SUELDO_BASE, PER_DISCAPACIDAD=@PER_DISCAPACIDAD";
+                SqlCommand comando = new SqlCommand(mod, conexion);
+                comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
+                comando.Parameters.AddWithValue("@IdLocalidad", cmbLocalidad.SelectedValue);
+                comando.Parameters.AddWithValue("@IdDepartamento", cmbDepartamento.SelectedValue);
+                comando.Parameters.AddWithValue("@NOMBRES", txtNombre.Text);
+                comando.Parameters.AddWithValue("@FECHA_INGRESO", dtpFechaI.Value);
+                comando.Parameters.AddWithValue("@CARGO", txtCargo.Text);
+                comando.Parameters.AddWithValue("@SUELDO_BASE", sueldo);
+                comando.Parameters.AddWithValue("@PER_DISCAPACIDAD", txtDiscapacidad.Text.ToUpper());
+                flag = comando.ExecuteNonQuery(); // 1 es que funko 0 es que no funko
 
-            if (flag == 1)
-            {
-                MessageBox.Show("Registro modificado con exito", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (flag == 1)
+                {
+                    MessageBox.Show("Registro modificado con exito", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (flag == 0)
+                {
+                    MessageBox.Show("No se pudo modificar el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                recargarTabla();
             }
-            else if (flag == 0)
+            catch (Exception ex)
             {
-                MessageBox.Show("No se pudo modificar el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            recargarTabla();
             conexion.Close();
-
         }
 
         private void dgvConsultaTabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -142,30 +165,46 @@ namespace ProyectoRoles
 
         private void btnEli_Click(object sender, EventArgs e)
         {
-            int flag = 0;
             conexion.Open();
-            DialogResult respuesta = MessageBox.Show("¿Está seguro de que desea eliminar el registro seleccionado?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            string consultaBorrar = "delete from TRABAJADORES where CEDULA = CEDULA";
-            SqlCommand comando = new SqlCommand(consultaBorrar, conexion);
-            comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
-            flag = comando.ExecuteNonQuery(); // 1 es que funko 0 es que no funko
+            if (txtCedula.Text == "")
+            {
+                MessageBox.Show("No se puede eliminar un registro sin el numero de cedula", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txtCedula.Text !="")
+            {
+                try
+                {
+                    int flag = 0;
+                    string cedula = txtCedula.Text;
+                    DialogResult respuesta = MessageBox.Show("¿Está seguro de que desea eliminar el registro seleccionado?",
+                        "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        string consultaBorrar = "DELETE FROM TRABAJADORES WHERE CEDULA=@CEDULA";
+                        SqlCommand comando = new SqlCommand(consultaBorrar, conexion);
+                        comando.Parameters.AddWithValue("@CEDULA", cedula);
+                        flag = comando.ExecuteNonQuery(); // 1 es que funko 0 es que no funko
+                    }
 
-            if (flag == 1)
-            {
-                MessageBox.Show("Registro eliminado con exito", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (flag == 1)
+                    {
+                        MessageBox.Show("Registro eliminado con exito", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (flag == 0)
+                    {
+                        //MessageBox.Show("No se pudo borrar el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    recargarTabla();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (flag == 0)
-            {
-                MessageBox.Show("No se pudo borrar el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            recargarTabla();
             conexion.Close();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
 
         }
+
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {

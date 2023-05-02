@@ -63,6 +63,26 @@ namespace ProyectoRoles.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _18771_scaled {
+            get {
+                object obj = ResourceManager.GetObject("18771-scaled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _18771_scaled__1_ {
+            get {
+                object obj = ResourceManager.GetObject("18771-scaled (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icono_guardar__1_ {
             get {
                 object obj = ResourceManager.GetObject("icono guardar (1)", resourceCulture);
