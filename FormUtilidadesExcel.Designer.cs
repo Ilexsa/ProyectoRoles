@@ -1,6 +1,6 @@
 ﻿namespace ProyectoRoles
 {
-    partial class FormSubirRol
+    partial class FormUtilidadesExcel
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUtilidadesExcel));
             label1 = new Label();
             txtRutaArchivo = new TextBox();
             btnBuscarArchivo = new Button();
@@ -35,9 +36,10 @@
             cboHojas = new ComboBox();
             btnMostrarHojas = new Button();
             dgvDatos = new DataGridView();
-            btnSubirDatos = new Button();
+            btnSubirDatosT = new Button();
             menuStrip1 = new MenuStrip();
             salirToolStripMenuItem = new ToolStripMenuItem();
+            btnSubirNomina = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -104,15 +106,15 @@
             dgvDatos.Size = new Size(859, 308);
             dgvDatos.TabIndex = 6;
             // 
-            // btnSubirDatos
+            // btnSubirDatosT
             // 
-            btnSubirDatos.Location = new Point(796, 491);
-            btnSubirDatos.Name = "btnSubirDatos";
-            btnSubirDatos.Size = new Size(75, 23);
-            btnSubirDatos.TabIndex = 7;
-            btnSubirDatos.Text = "Subir";
-            btnSubirDatos.UseVisualStyleBackColor = true;
-            btnSubirDatos.Click += btnSubirDatos_Click;
+            btnSubirDatosT.Location = new Point(646, 491);
+            btnSubirDatosT.Name = "btnSubirDatosT";
+            btnSubirDatosT.Size = new Size(225, 23);
+            btnSubirDatosT.TabIndex = 7;
+            btnSubirDatosT.Text = "Subir Trabajadores";
+            btnSubirDatosT.UseVisualStyleBackColor = true;
+            btnSubirDatosT.Click += btnSubirDatosT_Click;
             // 
             // menuStrip1
             // 
@@ -130,12 +132,22 @@
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
-            // FormSubirRol
+            // btnSubirNomina
+            // 
+            btnSubirNomina.Location = new Point(12, 491);
+            btnSubirNomina.Name = "btnSubirNomina";
+            btnSubirNomina.Size = new Size(243, 23);
+            btnSubirNomina.TabIndex = 9;
+            btnSubirNomina.Text = "Subir Nomina";
+            btnSubirNomina.UseVisualStyleBackColor = true;
+            // 
+            // FormUtilidadesExcel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(883, 526);
-            Controls.Add(btnSubirDatos);
+            Controls.Add(btnSubirNomina);
+            Controls.Add(btnSubirDatosT);
             Controls.Add(dgvDatos);
             Controls.Add(btnMostrarHojas);
             Controls.Add(cboHojas);
@@ -144,9 +156,10 @@
             Controls.Add(txtRutaArchivo);
             Controls.Add(label1);
             Controls.Add(menuStrip1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            Name = "FormSubirRol";
-            Text = "FormSubirRol";
+            Name = "FormUtilidadesExcel";
+            Text = "Utilidades Excel";
             Load += FormSubirRol_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
             menuStrip1.ResumeLayout(false);
@@ -164,8 +177,9 @@
         private ComboBox cboHojas;
         private Button btnMostrarHojas;
         private DataGridView dgvDatos;
-        private Button btnSubirDatos;
+        private Button btnSubirDatosT;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem salirToolStripMenuItem;
+        private Button btnSubirNomina;
     }
 }

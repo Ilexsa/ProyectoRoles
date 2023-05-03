@@ -38,10 +38,10 @@
             basesToolStripMenuItem = new ToolStripMenuItem();
             consultarBaseToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
-            subirRolesToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator4 = new ToolStripSeparator();
             subirIndividualToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
+            subirRolesToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
             salirToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -69,6 +69,7 @@
             // 
             // correosMasivosToolStripMenuItem
             // 
+            correosMasivosToolStripMenuItem.Image = Properties.Resources.enviar;
             correosMasivosToolStripMenuItem.Name = "correosMasivosToolStripMenuItem";
             correosMasivosToolStripMenuItem.Size = new Size(199, 26);
             correosMasivosToolStripMenuItem.Text = "Correos Masivos";
@@ -81,6 +82,7 @@
             // 
             // correoIndividualToolStripMenuItem
             // 
+            correoIndividualToolStripMenuItem.Image = Properties.Resources.enviar_correo;
             correoIndividualToolStripMenuItem.Name = "correoIndividualToolStripMenuItem";
             correoIndividualToolStripMenuItem.Size = new Size(199, 26);
             correoIndividualToolStripMenuItem.Text = "Correo Individual";
@@ -93,7 +95,7 @@
             // 
             // basesToolStripMenuItem
             // 
-            basesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultarBaseToolStripMenuItem, toolStripSeparator3, subirRolesToolStripMenuItem, toolStripSeparator4, subirIndividualToolStripMenuItem, toolStripSeparator5 });
+            basesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultarBaseToolStripMenuItem, toolStripSeparator3, subirIndividualToolStripMenuItem, toolStripSeparator5, subirRolesToolStripMenuItem, toolStripSeparator4 });
             basesToolStripMenuItem.Font = new Font("Palatino Linotype", 12F, FontStyle.Regular, GraphicsUnit.Point);
             basesToolStripMenuItem.Name = "basesToolStripMenuItem";
             basesToolStripMenuItem.Size = new Size(53, 26);
@@ -101,6 +103,7 @@
             // 
             // consultarBaseToolStripMenuItem
             // 
+            consultarBaseToolStripMenuItem.Image = Properties.Resources.agregar_usuario;
             consultarBaseToolStripMenuItem.Name = "consultarBaseToolStripMenuItem";
             consultarBaseToolStripMenuItem.Size = new Size(209, 26);
             consultarBaseToolStripMenuItem.Text = "Subir Trabajadores";
@@ -111,29 +114,31 @@
             toolStripSeparator3.Name = "toolStripSeparator3";
             toolStripSeparator3.Size = new Size(206, 6);
             // 
-            // subirRolesToolStripMenuItem
-            // 
-            subirRolesToolStripMenuItem.Name = "subirRolesToolStripMenuItem";
-            subirRolesToolStripMenuItem.Size = new Size(209, 26);
-            subirRolesToolStripMenuItem.Text = "Subir roles";
-            subirRolesToolStripMenuItem.Click += subirRolesToolStripMenuItem_Click;
-            // 
-            // toolStripSeparator4
-            // 
-            toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(206, 6);
-            // 
             // subirIndividualToolStripMenuItem
             // 
+            subirIndividualToolStripMenuItem.Image = Properties.Resources.documento;
             subirIndividualToolStripMenuItem.Name = "subirIndividualToolStripMenuItem";
             subirIndividualToolStripMenuItem.Size = new Size(209, 26);
-            subirIndividualToolStripMenuItem.Text = "Subir Individual";
+            subirIndividualToolStripMenuItem.Text = "Subir Roles";
             subirIndividualToolStripMenuItem.Click += subirIndividualToolStripMenuItem_Click;
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
             toolStripSeparator5.Size = new Size(206, 6);
+            // 
+            // subirRolesToolStripMenuItem
+            // 
+            subirRolesToolStripMenuItem.Image = Properties.Resources.archivo_excel;
+            subirRolesToolStripMenuItem.Name = "subirRolesToolStripMenuItem";
+            subirRolesToolStripMenuItem.Size = new Size(209, 26);
+            subirRolesToolStripMenuItem.Text = "Utilidades Excel";
+            subirRolesToolStripMenuItem.Click += subirRolesToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(206, 6);
             // 
             // salirToolStripMenuItem
             // 

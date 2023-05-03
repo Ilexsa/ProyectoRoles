@@ -50,6 +50,8 @@
             txtDiscapacidad = new TextBox();
             btnLimpiar = new Button();
             chkDiscapacidad = new CheckBox();
+            label9 = new Label();
+            txtCorreo = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvConsultaTabla).BeginInit();
             SuspendLayout();
             // 
@@ -63,7 +65,7 @@
             dgvConsultaTabla.Name = "dgvConsultaTabla";
             dgvConsultaTabla.RowTemplate.Height = 25;
             dgvConsultaTabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvConsultaTabla.Size = new Size(606, 327);
+            dgvConsultaTabla.Size = new Size(806, 337);
             dgvConsultaTabla.TabIndex = 0;
             dgvConsultaTabla.CellClick += dataGridView1_CellContentClick;
             dgvConsultaTabla.CellContentClick += dgvConsultaTabla_CellContentClick;
@@ -98,6 +100,7 @@
             // txtCedula
             // 
             txtCedula.Location = new Point(94, 44);
+            txtCedula.MaxLength = 10;
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(265, 23);
             txtCedula.TabIndex = 4;
@@ -118,13 +121,12 @@
             // 
             // btnAgg
             // 
-            btnAgg.Image = Properties.Resources.Untitled_1_min_2;
-            btnAgg.ImageAlign = ContentAlignment.TopLeft;
-            btnAgg.Location = new Point(24, 15);
+            btnAgg.Image = Properties.Resources.agregar;
+            btnAgg.Location = new Point(31, 3);
+            btnAgg.Margin = new Padding(0);
             btnAgg.Name = "btnAgg";
-            btnAgg.Size = new Size(64, 23);
+            btnAgg.Size = new Size(45, 47);
             btnAgg.TabIndex = 7;
-            btnAgg.Text = "Agregar";
             btnAgg.UseVisualStyleBackColor = true;
             btnAgg.Click += btnAgg_Click;
             // 
@@ -153,7 +155,7 @@
             // 
             cmbLocalidad.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbLocalidad.FormattingEnabled = true;
-            cmbLocalidad.Location = new Point(94, 169);
+            cmbLocalidad.Location = new Point(94, 204);
             cmbLocalidad.Name = "cmbLocalidad";
             cmbLocalidad.Size = new Size(121, 23);
             cmbLocalidad.TabIndex = 10;
@@ -162,7 +164,7 @@
             // 
             cmbDepartamento.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDepartamento.FormattingEnabled = true;
-            cmbDepartamento.Location = new Point(339, 169);
+            cmbDepartamento.Location = new Point(339, 204);
             cmbDepartamento.Name = "cmbDepartamento";
             cmbDepartamento.Size = new Size(121, 23);
             cmbDepartamento.TabIndex = 11;
@@ -170,7 +172,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(24, 172);
+            label4.Location = new Point(24, 207);
             label4.Name = "label4";
             label4.Size = new Size(64, 15);
             label4.TabIndex = 12;
@@ -179,7 +181,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(244, 172);
+            label5.Location = new Point(244, 207);
             label5.Name = "label5";
             label5.Size = new Size(89, 15);
             label5.TabIndex = 13;
@@ -189,17 +191,16 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(5, 217);
+            label6.Location = new Point(5, 252);
             label6.Name = "label6";
             label6.Size = new Size(102, 15);
             label6.TabIndex = 14;
             label6.Text = "Fecha de Ingreso :";
-            //label6.Click += label6_Click;
             // 
             // dtpFechaI
             // 
             dtpFechaI.Format = DateTimePickerFormat.Custom;
-            dtpFechaI.Location = new Point(113, 217);
+            dtpFechaI.Location = new Point(113, 252);
             dtpFechaI.Name = "dtpFechaI";
             dtpFechaI.Size = new Size(200, 23);
             dtpFechaI.TabIndex = 15;
@@ -225,7 +226,7 @@
             // 
             label8.AutoSize = true;
             label8.Enabled = false;
-            label8.Location = new Point(5, 287);
+            label8.Location = new Point(5, 322);
             label8.Name = "label8";
             label8.Size = new Size(83, 15);
             label8.TabIndex = 18;
@@ -234,7 +235,7 @@
             // txtDiscapacidad
             // 
             txtDiscapacidad.Enabled = false;
-            txtDiscapacidad.Location = new Point(95, 284);
+            txtDiscapacidad.Location = new Point(95, 319);
             txtDiscapacidad.Name = "txtDiscapacidad";
             txtDiscapacidad.Size = new Size(239, 23);
             txtDiscapacidad.TabIndex = 19;
@@ -252,19 +253,37 @@
             // chkDiscapacidad
             // 
             chkDiscapacidad.AutoSize = true;
-            chkDiscapacidad.Location = new Point(5, 259);
+            chkDiscapacidad.Location = new Point(12, 294);
             chkDiscapacidad.Name = "chkDiscapacidad";
-            chkDiscapacidad.Size = new Size(245, 19);
+            chkDiscapacidad.Size = new Size(257, 19);
             chkDiscapacidad.TabIndex = 21;
-            chkDiscapacidad.Text = "El colaborador poseé alguna discapacida?";
+            chkDiscapacidad.Text = "¿El colaborador poseé alguna discapacidad?";
             chkDiscapacidad.UseVisualStyleBackColor = true;
             chkDiscapacidad.CheckedChanged += chkDiscapacidad_CheckedChanged;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(39, 162);
+            label9.Name = "label9";
+            label9.Size = new Size(49, 15);
+            label9.TabIndex = 22;
+            label9.Text = "Correo :";
+            // 
+            // txtCorreo
+            // 
+            txtCorreo.Location = new Point(94, 159);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(265, 23);
+            txtCorreo.TabIndex = 23;
             // 
             // FormSubirTrabajadores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1084, 361);
+            ClientSize = new Size(1284, 361);
+            Controls.Add(txtCorreo);
+            Controls.Add(label9);
             Controls.Add(chkDiscapacidad);
             Controls.Add(btnLimpiar);
             Controls.Add(txtDiscapacidad);
@@ -326,5 +345,7 @@
         private TextBox txtDiscapacidad;
         private Button btnLimpiar;
         private CheckBox chkDiscapacidad;
+        private Label label9;
+        private TextBox txtCorreo;
     }
 }

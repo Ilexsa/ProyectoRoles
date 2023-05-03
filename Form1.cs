@@ -39,7 +39,7 @@ namespace ProyectoRoles
 
         private void subirRolesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormSubirRol formSubirRoles = new FormSubirRol();
+            FormUtilidadesExcel formSubirRoles = new FormUtilidadesExcel();
             formSubirRoles.ShowDialog();
         }
 

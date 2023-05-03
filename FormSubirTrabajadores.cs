@@ -29,13 +29,14 @@ namespace ProyectoRoles
                 txtCargo.Text = dgvConsultaTabla.SelectedCells[5].Value.ToString();
                 txtSueldo.Text = dgvConsultaTabla.SelectedCells[6].Value.ToString();
                 txtDiscapacidad.Text = dgvConsultaTabla.SelectedCells[7].Value.ToString();
+                txtCorreo.Text = dgvConsultaTabla.SelectedCells[8].Value.ToString();
                 dtpFechaI.Value = fecha;
                 cmbLocalidad.SelectedValue = dgvConsultaTabla.SelectedCells[1].Value.ToString();
                 cmbDepartamento.SelectedValue = dgvConsultaTabla.SelectedCells[2].Value.ToString();
-
             }
-            catch (Exception ex){
-                MessageBox.Show(ex.Message,"No hay datos",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void recargarTabla()
@@ -95,7 +96,7 @@ namespace ProyectoRoles
             try
             {
                 double sueldo = Convert.ToDouble(txtSueldo.Text);
-                string add = "insert into TRABAJADORES values (@CEDULA, @IdLocalidad, @IdDepartamento, @NOMBRES, @FECHA_INGRESO, @CARGO, @SUELDO_BASE, @PER_DISCAPACIDAD)";
+                string add = "insert into TRABAJADORES values (@CEDULA, @IdLocalidad, @IdDepartamento, @NOMBRES, @FECHA_INGRESO, @CARGO, @SUELDO_BASE, @PER_DISCAPACIDAD, @CORREO)";
                 SqlCommand comando = new SqlCommand(add, conexion);
                 comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
                 comando.Parameters.AddWithValue("@IdLocalidad", cmbLocalidad.SelectedValue);
@@ -105,9 +106,10 @@ namespace ProyectoRoles
                 comando.Parameters.AddWithValue("@CARGO", txtCargo.Text.ToUpper());
                 comando.Parameters.AddWithValue("@SUELDO_BASE", sueldo);
                 comando.Parameters.AddWithValue("@PER_DISCAPACIDAD", txtDiscapacidad.Text.ToUpper());
+                comando.Parameters.AddWithValue("@CORREO", txtCorreo.Text.ToLower());
                 comando.ExecuteNonQuery();
                 MessageBox.Show("Registro Exitoso", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                recargarTabla(); 
+                recargarTabla();
             }
             catch (Exception ex)
             {
@@ -124,7 +126,7 @@ namespace ProyectoRoles
                 double sueldo = Convert.ToDouble(txtSueldo.Text);
                 int flag = 0;
                 string mod = "update TRABAJADORES set CEDULA=@CEDULA,Idlocalidad=@Idlocalidad, IdDepartamento=@IdDepartamento, NOMBRES=@NOMBRES," +
-                    "FECHA_INGRESO=@FECHA_INGRESO, CARGO=@CARGO, SUELDO_BASE=@SUELDO_BASE, PER_DISCAPACIDAD=@PER_DISCAPACIDAD";
+                    "FECHA_INGRESO=@FECHA_INGRESO, CARGO=@CARGO, SUELDO_BASE=@SUELDO_BASE, PER_DISCAPACIDAD=@PER_DISCAPACIDAD, CORREO=@CORREO";
                 SqlCommand comando = new SqlCommand(mod, conexion);
                 comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
                 comando.Parameters.AddWithValue("@IdLocalidad", cmbLocalidad.SelectedValue);
@@ -134,6 +136,7 @@ namespace ProyectoRoles
                 comando.Parameters.AddWithValue("@CARGO", txtCargo.Text);
                 comando.Parameters.AddWithValue("@SUELDO_BASE", sueldo);
                 comando.Parameters.AddWithValue("@PER_DISCAPACIDAD", txtDiscapacidad.Text.ToUpper());
+                comando.Parameters.AddWithValue("@CORREO", txtCorreo.Text.ToLower());
                 flag = comando.ExecuteNonQuery(); // 1 es que funko 0 es que no funko
 
                 if (flag == 1)
@@ -170,7 +173,7 @@ namespace ProyectoRoles
             {
                 MessageBox.Show("No se puede eliminar un registro sin el numero de cedula", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (txtCedula.Text !="")
+            else if (txtCedula.Text != "")
             {
                 try
                 {
@@ -221,6 +224,11 @@ namespace ProyectoRoles
         {
             txtDiscapacidad.Enabled = chkDiscapacidad.Checked;
             label8.Enabled = chkDiscapacidad.Checked;
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
