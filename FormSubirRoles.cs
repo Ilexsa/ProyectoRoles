@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoRoles
 {
-    public partial class FormSubirIndividdual : Form
+    public partial class FormSubirRoles : Form
     {
-        public FormSubirIndividdual()
+        public FormSubirRoles()
         {
             InitializeComponent();
         }

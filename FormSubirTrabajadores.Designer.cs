@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSubirTrabajadores));
             dgvConsultaTabla = new DataGridView();
             label1 = new Label();
             label2 = new Label();
@@ -36,8 +37,6 @@
             txtNombre = new TextBox();
             txtCargo = new TextBox();
             btnAgg = new Button();
-            btnMod = new Button();
-            btnEli = new Button();
             cmbLocalidad = new ComboBox();
             cmbDepartamento = new ComboBox();
             label4 = new Label();
@@ -52,6 +51,8 @@
             chkDiscapacidad = new CheckBox();
             label9 = new Label();
             txtCorreo = new TextBox();
+            btnMod = new Button();
+            btnEli = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvConsultaTabla).BeginInit();
             SuspendLayout();
             // 
@@ -61,11 +62,12 @@
             dgvConsultaTabla.AllowUserToDeleteRows = false;
             dgvConsultaTabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvConsultaTabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvConsultaTabla.Location = new Point(466, 12);
+            dgvConsultaTabla.Location = new Point(533, 13);
+            dgvConsultaTabla.Margin = new Padding(3, 4, 3, 4);
             dgvConsultaTabla.Name = "dgvConsultaTabla";
             dgvConsultaTabla.RowTemplate.Height = 25;
             dgvConsultaTabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvConsultaTabla.Size = new Size(806, 337);
+            dgvConsultaTabla.Size = new Size(921, 382);
             dgvConsultaTabla.TabIndex = 0;
             dgvConsultaTabla.CellClick += dataGridView1_CellContentClick;
             dgvConsultaTabla.CellContentClick += dgvConsultaTabla_CellContentClick;
@@ -73,117 +75,104 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(38, 47);
+            label1.Location = new Point(43, 54);
             label1.Name = "label1";
-            label1.Size = new Size(50, 15);
+            label1.Size = new Size(59, 17);
             label1.TabIndex = 1;
             label1.Text = "Cedula :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(31, 76);
+            label2.Location = new Point(35, 86);
             label2.Name = "label2";
-            label2.Size = new Size(57, 15);
+            label2.Size = new Size(68, 17);
             label2.TabIndex = 2;
             label2.Text = "Nombre :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(43, 105);
+            label3.Location = new Point(49, 119);
             label3.Name = "label3";
-            label3.Size = new Size(45, 15);
+            label3.Size = new Size(54, 17);
             label3.TabIndex = 3;
             label3.Text = "Cargo :";
             // 
             // txtCedula
             // 
-            txtCedula.Location = new Point(94, 44);
+            txtCedula.BackColor = SystemColors.Control;
+            txtCedula.Location = new Point(107, 50);
+            txtCedula.Margin = new Padding(3, 4, 3, 4);
             txtCedula.MaxLength = 10;
             txtCedula.Name = "txtCedula";
-            txtCedula.Size = new Size(265, 23);
+            txtCedula.Size = new Size(302, 24);
             txtCedula.TabIndex = 4;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(94, 73);
+            txtNombre.Location = new Point(107, 82);
+            txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(265, 23);
+            txtNombre.Size = new Size(302, 24);
             txtNombre.TabIndex = 5;
             // 
             // txtCargo
             // 
-            txtCargo.Location = new Point(94, 102);
+            txtCargo.Location = new Point(107, 115);
+            txtCargo.Margin = new Padding(3, 4, 3, 4);
             txtCargo.Name = "txtCargo";
-            txtCargo.Size = new Size(265, 23);
+            txtCargo.Size = new Size(302, 24);
             txtCargo.TabIndex = 6;
             // 
             // btnAgg
             // 
-            btnAgg.Image = Properties.Resources.agregar;
-            btnAgg.Location = new Point(31, 3);
+            btnAgg.FlatAppearance.BorderSize = 0;
+            btnAgg.FlatStyle = FlatStyle.Flat;
+            btnAgg.Image = Properties.Resources.agregar_usuario__1_;
+            btnAgg.Location = new Point(82, 4);
             btnAgg.Margin = new Padding(0);
             btnAgg.Name = "btnAgg";
-            btnAgg.Size = new Size(45, 47);
+            btnAgg.Size = new Size(43, 43);
             btnAgg.TabIndex = 7;
             btnAgg.UseVisualStyleBackColor = true;
             btnAgg.Click += btnAgg_Click;
-            // 
-            // btnMod
-            // 
-            btnMod.Location = new Point(130, 15);
-            btnMod.Name = "btnMod";
-            btnMod.Size = new Size(65, 23);
-            btnMod.TabIndex = 8;
-            btnMod.Text = "Modificar";
-            btnMod.TextAlign = ContentAlignment.BottomCenter;
-            btnMod.UseVisualStyleBackColor = true;
-            btnMod.Click += btnMod_Click;
-            // 
-            // btnEli
-            // 
-            btnEli.Location = new Point(244, 15);
-            btnEli.Name = "btnEli";
-            btnEli.Size = new Size(65, 23);
-            btnEli.TabIndex = 9;
-            btnEli.Text = "Eliminar";
-            btnEli.UseVisualStyleBackColor = true;
-            btnEli.Click += btnEli_Click;
             // 
             // cmbLocalidad
             // 
             cmbLocalidad.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbLocalidad.FormattingEnabled = true;
-            cmbLocalidad.Location = new Point(94, 204);
+            cmbLocalidad.Location = new Point(107, 231);
+            cmbLocalidad.Margin = new Padding(3, 4, 3, 4);
             cmbLocalidad.Name = "cmbLocalidad";
-            cmbLocalidad.Size = new Size(121, 23);
+            cmbLocalidad.Size = new Size(138, 25);
             cmbLocalidad.TabIndex = 10;
             // 
             // cmbDepartamento
             // 
             cmbDepartamento.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDepartamento.FormattingEnabled = true;
-            cmbDepartamento.Location = new Point(339, 204);
+            cmbDepartamento.Location = new Point(387, 231);
+            cmbDepartamento.Margin = new Padding(3, 4, 3, 4);
             cmbDepartamento.Name = "cmbDepartamento";
-            cmbDepartamento.Size = new Size(121, 23);
+            cmbDepartamento.Size = new Size(138, 25);
             cmbDepartamento.TabIndex = 11;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(24, 207);
+            label4.Location = new Point(27, 234);
             label4.Name = "label4";
-            label4.Size = new Size(64, 15);
+            label4.Size = new Size(76, 17);
             label4.TabIndex = 12;
             label4.Text = "Localidad :";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(244, 207);
+            label5.Location = new Point(279, 234);
             label5.Name = "label5";
-            label5.Size = new Size(89, 15);
+            label5.Size = new Size(108, 17);
             label5.TabIndex = 13;
             label5.Text = "Departamento :";
             label5.Click += label5_Click;
@@ -191,71 +180,78 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(5, 252);
+            label6.Location = new Point(6, 285);
             label6.Name = "label6";
-            label6.Size = new Size(102, 15);
+            label6.Size = new Size(119, 17);
             label6.TabIndex = 14;
             label6.Text = "Fecha de Ingreso :";
             // 
             // dtpFechaI
             // 
             dtpFechaI.Format = DateTimePickerFormat.Custom;
-            dtpFechaI.Location = new Point(113, 252);
+            dtpFechaI.Location = new Point(129, 285);
+            dtpFechaI.Margin = new Padding(3, 4, 3, 4);
             dtpFechaI.Name = "dtpFechaI";
-            dtpFechaI.Size = new Size(200, 23);
+            dtpFechaI.Size = new Size(228, 24);
             dtpFechaI.TabIndex = 15;
             dtpFechaI.Value = new DateTime(2023, 4, 26, 16, 6, 0, 0);
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(39, 133);
+            label7.Location = new Point(45, 150);
             label7.Name = "label7";
-            label7.Size = new Size(49, 15);
+            label7.Size = new Size(57, 17);
             label7.TabIndex = 16;
             label7.Text = "Sueldo :";
             // 
             // txtSueldo
             // 
-            txtSueldo.Location = new Point(94, 130);
+            txtSueldo.Location = new Point(107, 148);
+            txtSueldo.Margin = new Padding(3, 4, 3, 4);
             txtSueldo.Name = "txtSueldo";
-            txtSueldo.Size = new Size(110, 23);
+            txtSueldo.Size = new Size(125, 24);
             txtSueldo.TabIndex = 17;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Enabled = false;
-            label8.Location = new Point(5, 322);
+            label8.Location = new Point(6, 365);
             label8.Name = "label8";
-            label8.Size = new Size(83, 15);
+            label8.Size = new Size(96, 17);
             label8.TabIndex = 18;
             label8.Text = "Discapacidad :";
             // 
             // txtDiscapacidad
             // 
             txtDiscapacidad.Enabled = false;
-            txtDiscapacidad.Location = new Point(95, 319);
+            txtDiscapacidad.Location = new Point(109, 361);
+            txtDiscapacidad.Margin = new Padding(3, 4, 3, 4);
             txtDiscapacidad.Name = "txtDiscapacidad";
-            txtDiscapacidad.Size = new Size(239, 23);
+            txtDiscapacidad.Size = new Size(273, 24);
             txtDiscapacidad.TabIndex = 19;
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(355, 15);
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.Image = Properties.Resources.limpio;
+            btnLimpiar.Location = new Point(387, 4);
+            btnLimpiar.Margin = new Padding(3, 4, 3, 4);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(65, 23);
+            btnLimpiar.Size = new Size(47, 43);
             btnLimpiar.TabIndex = 20;
-            btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
             btnLimpiar.Click += btnLimpiar_Click;
             // 
             // chkDiscapacidad
             // 
             chkDiscapacidad.AutoSize = true;
-            chkDiscapacidad.Location = new Point(12, 294);
+            chkDiscapacidad.Location = new Point(14, 333);
+            chkDiscapacidad.Margin = new Padding(3, 4, 3, 4);
             chkDiscapacidad.Name = "chkDiscapacidad";
-            chkDiscapacidad.Size = new Size(257, 19);
+            chkDiscapacidad.Size = new Size(296, 21);
             chkDiscapacidad.TabIndex = 21;
             chkDiscapacidad.Text = "¿El colaborador poseé alguna discapacidad?";
             chkDiscapacidad.UseVisualStyleBackColor = true;
@@ -264,24 +260,53 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(39, 162);
+            label9.Location = new Point(45, 183);
             label9.Name = "label9";
-            label9.Size = new Size(49, 15);
+            label9.Size = new Size(58, 17);
             label9.TabIndex = 22;
             label9.Text = "Correo :";
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(94, 159);
+            txtCorreo.Location = new Point(107, 180);
+            txtCorreo.Margin = new Padding(3, 4, 3, 4);
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(265, 23);
+            txtCorreo.Size = new Size(302, 24);
             txtCorreo.TabIndex = 23;
+            // 
+            // btnMod
+            // 
+            btnMod.FlatAppearance.BorderSize = 0;
+            btnMod.FlatStyle = FlatStyle.Flat;
+            btnMod.Image = Properties.Resources.boton_editar;
+            btnMod.Location = new Point(182, 4);
+            btnMod.Margin = new Padding(3, 4, 3, 4);
+            btnMod.Name = "btnMod";
+            btnMod.Size = new Size(50, 43);
+            btnMod.TabIndex = 8;
+            btnMod.TextAlign = ContentAlignment.BottomCenter;
+            btnMod.UseVisualStyleBackColor = true;
+            btnMod.Click += btnMod_Click;
+            // 
+            // btnEli
+            // 
+            btnEli.FlatAppearance.BorderSize = 0;
+            btnEli.FlatStyle = FlatStyle.Flat;
+            btnEli.Image = Properties.Resources.quitar_usuario;
+            btnEli.Location = new Point(279, 4);
+            btnEli.Margin = new Padding(3, 4, 3, 4);
+            btnEli.Name = "btnEli";
+            btnEli.Size = new Size(47, 43);
+            btnEli.TabIndex = 9;
+            btnEli.UseVisualStyleBackColor = true;
+            btnEli.Click += btnEli_Click;
             // 
             // FormSubirTrabajadores
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1284, 361);
+            BackColor = SystemColors.GrayText;
+            ClientSize = new Size(1467, 409);
             Controls.Add(txtCorreo);
             Controls.Add(label9);
             Controls.Add(chkDiscapacidad);
@@ -306,8 +331,11 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dgvConsultaTabla);
-            ForeColor = SystemColors.ControlText;
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            Font = new Font("Berlin Sans FB", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ForeColor = SystemColors.MenuText;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
@@ -331,8 +359,6 @@
         private TextBox txtNombre;
         private TextBox txtCargo;
         private Button btnAgg;
-        private Button btnMod;
-        private Button btnEli;
         private ComboBox cmbLocalidad;
         private ComboBox cmbDepartamento;
         private Label label4;
@@ -347,5 +373,7 @@
         private CheckBox chkDiscapacidad;
         private Label label9;
         private TextBox txtCorreo;
+        private Button btnMod;
+        private Button btnEli;
     }
 }

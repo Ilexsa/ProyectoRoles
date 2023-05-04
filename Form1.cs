@@ -45,7 +45,7 @@ namespace ProyectoRoles
 
         private void subirIndividualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormSubirIndividdual formSubirIndividdual = new FormSubirIndividdual();
+            FormSubirRoles formSubirIndividdual = new FormSubirRoles();
             formSubirIndividdual.ShowDialog();
         }
 

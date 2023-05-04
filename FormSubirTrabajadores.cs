@@ -17,6 +17,7 @@ namespace ProyectoRoles
         public FormSubirTrabajadores()
         {
             InitializeComponent();
+            txtNombre.TextChanged += new EventHandler(txtFiltro_TextChanged);
         }
         SqlConnection conexion = new SqlConnection(ConexionBase.cadenaConexion);
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -125,8 +126,9 @@ namespace ProyectoRoles
             {
                 double sueldo = Convert.ToDouble(txtSueldo.Text);
                 int flag = 0;
-                string mod = "update TRABAJADORES set CEDULA=@CEDULA,Idlocalidad=@Idlocalidad, IdDepartamento=@IdDepartamento, NOMBRES=@NOMBRES," +
-                    "FECHA_INGRESO=@FECHA_INGRESO, CARGO=@CARGO, SUELDO_BASE=@SUELDO_BASE, PER_DISCAPACIDAD=@PER_DISCAPACIDAD, CORREO=@CORREO";
+                string mod = "update TRABAJADORES set Idlocalidad=@Idlocalidad, IdDepartamento=@IdDepartamento, NOMBRES=@NOMBRES," +
+                "FECHA_INGRESO=@FECHA_INGRESO, CARGO=@CARGO, SUELDO_BASE=@SUELDO_BASE, PER_DISCAPACIDAD=@PER_DISCAPACIDAD, CORREO=@CORREO " +
+                "where CEDULA=@CEDULA";
                 SqlCommand comando = new SqlCommand(mod, conexion);
                 comando.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
                 comando.Parameters.AddWithValue("@IdLocalidad", cmbLocalidad.SelectedValue);
@@ -138,16 +140,29 @@ namespace ProyectoRoles
                 comando.Parameters.AddWithValue("@PER_DISCAPACIDAD", txtDiscapacidad.Text.ToUpper());
                 comando.Parameters.AddWithValue("@CORREO", txtCorreo.Text.ToLower());
                 flag = comando.ExecuteNonQuery(); // 1 es que funko 0 es que no funko
+                // Buscamos la fila que deseamos actualizar
+                string consulta = "select count(*) from TRABAJADORES where CEDULA=@CEDULA";
+                SqlCommand comandoConsulta = new SqlCommand(consulta, conexion);
+                comandoConsulta.Parameters.AddWithValue("@CEDULA", txtCedula.Text);
+                int count = Convert.ToInt32(comandoConsulta.ExecuteScalar());
+                if (count == 0)
+                {
+                    MessageBox.Show("La cédula no existe en la tabla.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    flag = comando.ExecuteNonQuery(); // 1 es que funko 0 es que no funko
 
-                if (flag == 1)
-                {
-                    MessageBox.Show("Registro modificado con exito", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (flag == 1)
+                    {
+                        MessageBox.Show("Registro modificado con exito", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (flag == 0)
+                    {
+                        MessageBox.Show("No se pudo modificar el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    recargarTabla();
                 }
-                else if (flag == 0)
-                {
-                    MessageBox.Show("No se pudo modificar el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                recargarTabla();
             }
             catch (Exception ex)
             {
@@ -218,6 +233,7 @@ namespace ProyectoRoles
             txtNombre.Clear();
             txtSueldo.Clear();
             txtCedula.Clear();
+            txtCorreo.Clear();
         }
 
         private void chkDiscapacidad_CheckedChanged(object sender, EventArgs e)
@@ -229,6 +245,27 @@ namespace ProyectoRoles
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtNombre.Text.Trim(); // Obtener el texto del TextBox y quitar espacios en blanco
+
+            // Obtener la tabla que se utiliza como fuente de datos del DataGridView
+            DataTable tabla = ((DataTable)dgvConsultaTabla.DataSource);
+
+            // Si el filtro está vacío, se quita el filtro y se muestran todos los datos
+            if (string.IsNullOrEmpty(filtro))
+            {
+                tabla.DefaultView.RowFilter = string.Empty;
+            }
+            else
+            {
+                // Se ajusta el filtro según la columna que quieras filtrar, en este ejemplo se filtra por la columna "Nombre"
+                tabla.DefaultView.RowFilter = $"NOMBRES LIKE '%{filtro}%'";
+            }
+
+            // Actualizar el DataGridView
+            dgvConsultaTabla.Refresh();
         }
     }
 }
