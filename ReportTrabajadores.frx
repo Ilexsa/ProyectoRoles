@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/05/2023 12:09:41" ReportInfo.Modified="05/05/2023 12:12:39" ReportInfo.CreatorVersion="2023.2.0.0">
+  <Styles Name="Blue">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Fill.Color="LightSkyBlue" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Fill.Color="LightSkyBlue" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="AliceBlue" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqKUGhVUVI3Yu5op9O6GYT/l8/HMMTBfnjeaix3GkdxJT+Lf8W8EFoIzCP0P5E1w7i8/U1YX7NFVNoWYaOC6dBZQsDn4LgcQtV6ADyVD/BVmxrk2dxb3GeOj7ftCk5Nzc2KvCpjK3CkLxspovmPVuDBoL2mTRXYiPcVdVNJVdhWTSM49uehKhfCJRO/zwj+kgha5tAKGCCAKoJTdZubkgyRg==">
+      <TableDataSource Name="TRABAJADORES" DataType="System.Int32" Enabled="true" TableName="TRABAJADORES">
+        <Column Name="CEDULA" DataType="System.String"/>
+        <Column Name="IdLocalidad" DataType="System.Int32"/>
+        <Column Name="IdDepartamento" DataType="System.Int32"/>
+        <Column Name="NOMBRES" DataType="System.String"/>
+        <Column Name="FECHA_INGRESO" DataType="System.DateTime"/>
+        <Column Name="CARGO" DataType="System.String"/>
+        <Column Name="SUELDO_BASE" DataType="System.Double"/>
+        <Column Name="PER_DISCAPACIDAD" DataType="System.String"/>
+        <Column Name="CORREO" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Width="718.2" Height="37.8" Dock="Fill" Text="TRABAJADORES" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold" Style="Title"/>
+    </ReportTitleBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="41.8" Width="718.2" Height="18.9" Condition="[TRABAJADORES.IdLocalidad]">
+      <TextObject Name="Text20" Width="718.2" Height="18.9" Dock="Fill" Text="[TRABAJADORES.IdLocalidad]" Font="Arial, 10pt, style=Bold" Style="Group"/>
+      <GroupHeaderBand Name="GroupHeader2" Top="64.7" Width="718.2" Height="18.9" Condition="[TRABAJADORES.IdDepartamento]">
+        <TextObject Name="Text21" Width="718.2" Height="18.9" Dock="Fill" Text="[TRABAJADORES.IdDepartamento]" Font="Arial, 10pt, style=Bold" Style="Group"/>
+        <GroupHeaderBand Name="GroupHeader3" Top="87.6" Width="718.2" Height="18.9" Condition="[TRABAJADORES.FECHA_INGRESO]">
+          <TextObject Name="Text22" Width="718.2" Height="18.9" Dock="Fill" Text="[TRABAJADORES.FECHA_INGRESO]" Font="Arial, 10pt, style=Bold" Style="Group"/>
+          <GroupHeaderBand Name="GroupHeader4" Top="110.5" Width="718.2" Height="18.9" Condition="[TRABAJADORES.SUELDO_BASE]">
+            <TextObject Name="Text23" Width="718.2" Height="18.9" Dock="Fill" Text="[TRABAJADORES.SUELDO_BASE]" Font="Arial, 10pt, style=Bold" Style="Group"/>
+            <GroupHeaderBand Name="GroupHeader5" Top="133.4" Width="718.2" Height="18.9" Condition="[TRABAJADORES.PER_DISCAPACIDAD]">
+              <TextObject Name="Text24" Width="718.2" Height="18.9" Dock="Fill" Text="[TRABAJADORES.PER_DISCAPACIDAD]" Font="Arial, 10pt, style=Bold" Style="Group"/>
+              <GroupHeaderBand Name="GroupHeader6" Top="156.3" Width="718.2" Height="18.9" Condition="[TRABAJADORES.CORREO]">
+                <TextObject Name="Text25" Width="718.2" Height="18.9" Dock="Fill" Text="[TRABAJADORES.CORREO]" Font="Arial, 10pt, style=Bold" Style="Group"/>
+                <DataBand Name="Data1" Top="179.2" Width="718.2" Height="179.55" DataSource="TRABAJADORES">
+                  <TextObject Name="Text2" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="CEDULA" Font="Arial, 10pt, style=Bold" Style="Header"/>
+                  <TextObject Name="Text3" Left="151.2" Width="567" Height="18.9" Text="[TRABAJADORES.CEDULA]" Font="Arial, 10pt" Style="Data"/>
+                  <TextObject Name="Text4" Top="18.9" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="CARGO" Font="Arial, 10pt, style=Bold" Style="Header"/>
+                  <TextObject Name="Text5" Left="151.2" Top="18.9" Width="567" Height="18.9" Text="[TRABAJADORES.CARGO]" Font="Arial, 10pt" Style="Data"/>
+                  <TextObject Name="Text6" Top="37.8" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="NOMBRES" Font="Arial, 10pt, style=Bold" Style="Header"/>
+                  <TextObject Name="Text7" Left="151.2" Top="37.8" Width="567" Height="18.9" Text="[TRABAJADORES.NOMBRES]" Font="Arial, 10pt" Style="Data"/>
+                  <TextObject Name="Text8" Top="56.7" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="IdLocalidad" Font="Arial, 10pt, style=Bold" Style="Header"/>
+                  <TextObject Name="Text9" Left="151.2" Top="56.7" Width="567" Height="18.9" Text="[TRABAJADORES.IdLocalidad]" Font="Arial, 10pt" Style="Data"/>
+                  <TextObject Name="Text10" Top="75.6" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="IdDepartamento" Font="Arial, 10pt, style=Bold" Style="Header"/>
+                  <TextObject Name="Text11" Left="151.2" Top="75.6" Width="567" Height="18.9" Text="[TRABAJADORES.IdDepartamento]" Font="Arial, 10pt" Style="Data"/>
+                  <TextObject Name="Text12" Top="94.5" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="FECHA_INGRESO" Font="Arial, 10pt, style=Bold" Style="Header"/>
+                  <TextObject Name="Text13" Left="151.2" Top="94.5" Width="567" Height="18.9" Text="[TRABAJADORES.FECHA_INGRESO]" Font="Arial, 10pt" Style="Data"/>
+                  <TextObject Name="Text14" Top="113.4" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="SUELDO_BASE" Font="Arial, 10pt, style=Bold" Style="Header"/>
+                  <TextObject Name="Text15" Left="151.2" Top="113.4" Width="567" Height="18.9" Text="[TRABAJADORES.SUELDO_BASE]" Font="Arial, 10pt" Style="Data"/>
+                  <TextObject Name="Text16" Top="132.3" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="PER_DISCAPACIDAD" Font="Arial, 10pt, style=Bold" Style="Header"/>
+                  <TextObject Name="Text17" Left="151.2" Top="132.3" Width="567" Height="18.9" Text="[TRABAJADORES.PER_DISCAPACIDAD]" Font="Arial, 10pt" Style="Data"/>
+                  <TextObject Name="Text18" Top="151.2" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="CORREO" Font="Arial, 10pt, style=Bold" Style="Header"/>
+                  <TextObject Name="Text19" Left="151.2" Top="151.2" Width="567" Height="18.9" Text="[TRABAJADORES.CORREO]" Font="Arial, 10pt" Style="Data"/>
+                </DataBand>
+                <GroupFooterBand Name="GroupFooter6" Top="362.75" Width="718.2" Height="18.9"/>
+              </GroupHeaderBand>
+              <GroupFooterBand Name="GroupFooter5" Top="385.65" Width="718.2" Height="18.9"/>
+            </GroupHeaderBand>
+            <GroupFooterBand Name="GroupFooter4" Top="408.55" Width="718.2" Height="18.9"/>
+          </GroupHeaderBand>
+          <GroupFooterBand Name="GroupFooter3" Top="431.45" Width="718.2" Height="18.9"/>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter2" Top="454.35" Width="718.2" Height="18.9"/>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="477.25" Width="718.2" Height="18.9"/>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="500.15" Width="718.2" Height="18.9">
+      <TextObject Name="Text26" Width="718.2" Height="18.9" Dock="Fill" Fill.Color="LightSkyBlue" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

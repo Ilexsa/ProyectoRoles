@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/05/2023 07:53:24" ReportInfo.Modified="05/05/2023 08:40:35" ReportInfo.CreatorVersion="2023.2.0.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqKUGhVUVI3Yu5op9O6GYT/l8/HMMTBfnjeaix3GkdxJT+Lf8W8EFoIzCP0P5E1w7i8/U1YX7NFVNoWYaOC6dBZQsDn4LgcQtV6ADyVD/BVmxrk2dxb3GeOj7ftCk5Nzc2KvCpjK3CkLxspovmPVuDBoL2mTRXYiPcVdVNJVdhWTSM49uehKhfCJRO/zwj+kghED8hkNBy4od97LaSY80MMw==">
+      <TableDataSource Name="LOCALIDADES" DataType="System.Int32" Enabled="true" TableName="LOCALIDADES">
+        <Column Name="ID" DataType="System.Int32"/>
+        <Column Name="LOCALIDAD" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="DEPARTAMENTOS" DataType="System.Int32" Enabled="true" TableName="DEPARTAMENTOS">
+        <Column Name="ID" DataType="System.Int32"/>
+        <Column Name="DEPARTAMENTO" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="TRABAJADORES" DataType="System.Int32" Enabled="true" TableName="TRABAJADORES">
+        <Column Name="IdLocalidad" DataType="System.Int32"/>
+        <Column Name="IdDepartamento" DataType="System.Int32"/>
+        <Column Name="NOMBRES" DataType="System.String"/>
+        <Column Name="FECHA_INGRESO" DataType="System.DateTime"/>
+        <Column Name="CARGO" DataType="System.String"/>
+        <Column Name="SUELDO_BASE" DataType="System.Double"/>
+        <Column Name="PER_DISCAPACIDAD" DataType="System.String"/>
+        <Column Name="CORREO" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="NOMINA" DataType="System.Int32" Enabled="true" TableName="NOMINA">
+        <Column Name="ID" DataType="System.Int32"/>
+        <Column Name="CEDULA" DataType="System.String"/>
+        <Column Name="MATER_ENFG" DataType="System.String"/>
+        <Column Name="ALIMENTACION" DataType="System.Double"/>
+        <Column Name="MOVILIZACION" DataType="System.Double"/>
+        <Column Name="OTROS_INGRESOS_NA" DataType="System.Double"/>
+        <Column Name="OTROS_INGRESOS_A" DataType="System.Double"/>
+        <Column Name="R_NOCTURNO" DataType="System.Double"/>
+        <Column Name="R_NOCUTNO50" DataType="System.Double"/>
+        <Column Name="R_NOCTURNO100" DataType="System.Double"/>
+        <Column Name="EXTRAS" DataType="System.Double"/>
+        <Column Name="INGRESOS_IESS" DataType="System.Double"/>
+        <Column Name="T_INGRESOS" DataType="System.Double"/>
+        <Column Name="A_QUINCENA" DataType="System.Double"/>
+        <Column Name="P_QUIROGRAFARIOS" DataType="System.Double"/>
+        <Column Name="P_HIPOTECARIOS" DataType="System.Double"/>
+        <Column Name="DESCUENTO_PERMISOS_MEDICOS" DataType="System.Double"/>
+        <Column Name="CxP" DataType="System.Double"/>
+        <Column Name="DESCUADRES" DataType="System.Double"/>
+        <Column Name="SUPA" DataType="System.Double"/>
+        <Column Name="EGRESOS_IESS" DataType="System.Double"/>
+        <Column Name="T_EGRESOS" DataType="System.Double"/>
+        <Column Name="NETO_RECIBIR" DataType="System.Double"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35">
+      <TextObject Name="Text2" Left="18.9" Width="198.45" Height="18.9" Text="[TRABAJADORES.CEDULA]" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="179.55" DataSource="TRABAJADORES">
+      <TextObject Name="Text1" Left="1219.05" Top="160.65" Width="94.5" Height="18.9" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Left="37.8" Top="9.45" Width="264.6" Height="18.9" Text="[TRABAJADORES.CARGO]" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="56.7" Top="56.7" Width="245.7" Height="18.9" Text="[TRABAJADORES.FECHA_INGRESO]" Format="Date" Format.Format="d" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="122.85" Top="94.5" Width="255.15" Height="18.9" Text="[TRABAJADORES.SUELDO_BASE]" Format="Number" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" WordWrap="false" Font="Arial, 10pt" Trimming="EllipsisCharacter"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="257.7" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

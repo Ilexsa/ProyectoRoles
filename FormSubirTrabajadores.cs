@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Xml.Serialization;
+using FastReport;
+using FastReport.Preview;
+using System.Drawing.Printing;
 
 namespace ProyectoRoles
 {
@@ -18,6 +21,9 @@ namespace ProyectoRoles
         {
             InitializeComponent();
             txtNombre.TextChanged += new EventHandler(txtFiltro_TextChanged);
+            FastReport.Report reporte = new FastReport.Report();
+            PrintPreviewControl previewControl = new PrintPreviewControl();
+            reporte.Load("C:\\Users\\jayala\\Documents\\ReportTrabajadores.frx");
         }
         SqlConnection conexion = new SqlConnection(ConexionBase.cadenaConexion);
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -266,6 +272,15 @@ namespace ProyectoRoles
 
             // Actualizar el DataGridView
             dgvConsultaTabla.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (FastReport.Report reporte =new FastReport.Report())
+            {
+                reporte.Load("C:\\Users\\jayala\\Documents\\ReportTrabajadores.frx");
+                reporte.RegisterData(DataTable,"TRABAJADORES");
+            }
         }
     }
 }

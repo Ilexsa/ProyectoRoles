@@ -53,6 +53,7 @@
             txtCorreo = new TextBox();
             btnMod = new Button();
             btnEli = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvConsultaTabla).BeginInit();
             SuspendLayout();
             // 
@@ -279,7 +280,7 @@
             btnMod.FlatAppearance.BorderSize = 0;
             btnMod.FlatStyle = FlatStyle.Flat;
             btnMod.Image = Properties.Resources.boton_editar;
-            btnMod.Location = new Point(182, 4);
+            btnMod.Location = new Point(171, 4);
             btnMod.Margin = new Padding(3, 4, 3, 4);
             btnMod.Name = "btnMod";
             btnMod.Size = new Size(50, 43);
@@ -301,12 +302,23 @@
             btnEli.UseVisualStyleBackColor = true;
             btnEli.Click += btnEli_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(441, 340);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 24;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // FormSubirTrabajadores
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GrayText;
             ClientSize = new Size(1467, 409);
+            Controls.Add(button1);
             Controls.Add(txtCorreo);
             Controls.Add(label9);
             Controls.Add(chkDiscapacidad);
@@ -375,5 +387,6 @@
         private TextBox txtCorreo;
         private Button btnMod;
         private Button btnEli;
+        private Button button1;
     }
 }
